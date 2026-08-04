@@ -239,6 +239,7 @@ export const SideMenu: React.FC = () => {
             REQUEST CONSULTATION
           </Link>
           
+          {/* 
           <div className="flex gap-4 opacity-50 select-none">
             <span className="font-body text-[10px] font-semibold tracking-wider hover:opacity-75 cursor-pointer">
               PRIVACY
@@ -247,6 +248,7 @@ export const SideMenu: React.FC = () => {
               LEGAL
             </span>
           </div>
+          */}
         </div>
       </nav>
     </>
