@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../store';
-import { toggleMenu, setLanguage } from '../store/uiSlice';
+import { useAppDispatch } from '../store';
+import { toggleMenu } from '../store/uiSlice';
 import { Link } from 'react-router-dom';
 import logoImg from '../assets/images/theta_logo.png';
 
@@ -9,15 +9,9 @@ import logoImg from '../assets/images/theta_logo.png';
  */
 export const Header: React.FC = () => {
   const dispatch = useAppDispatch();
-  const language = useAppSelector((state) => state.ui.language);
 
   const handleOpenMenu = () => {
     dispatch(toggleMenu());
-  };
-
-  const handleLanguageChange = () => {
-    const nextLang = language === 'EN' ? 'IN' : 'EN';
-    dispatch(setLanguage(nextLang));
   };
 
   return (
@@ -51,15 +45,6 @@ export const Header: React.FC = () => {
 
         {/* Right Side: Actions */}
         <div className="flex items-center gap-gutter">
-          {/* Language Selector */}
-          <div 
-            onClick={handleLanguageChange}
-            className="hidden md:flex items-center gap-1.5 cursor-pointer hover:opacity-70 transition-opacity duration-300 select-none"
-          >
-            <span className="font-body text-xs font-semibold text-on-surface-variant">{language}</span>
-            <span className="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
-          </div>
-
           {/* Action CTA Button */}
           <Link 
             to="/contact" 
