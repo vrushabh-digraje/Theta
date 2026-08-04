@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
         {/* Right Side: Corporate answer copy (cols 7 to 12) */}
         <div className="md:col-span-6 flex flex-col justify-center">
           {/* H2 Heading: Who We Are */}
-          <h2 className="font-display text-[26px] sm:text-[34px] lg:text-[40px] text-primary leading-tight mb-6 font-semibold select-none">
+          <h2 className="font-display text-[26px] sm:text-[34px] lg:text-[40px] text-primary leading-tight mb-6 font-semibold select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
             Who We Are
           </h2>
           

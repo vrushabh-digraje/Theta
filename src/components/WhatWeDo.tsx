@@ -74,7 +74,7 @@ export const WhatWeDo: FC = () => {
     <section className="max-w-[1440px] mx-auto px-frame-margin py-section-gap fade-in">
       {/* Header Block */}
       <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 text-center max-w-4xl mx-auto">
-        <h2 className="font-display text-[26px] sm:text-[34px] lg:text-[40px] text-primary leading-tight mb-6 font-semibold select-none">
+        <h2 className="font-display text-[26px] sm:text-[34px] lg:text-[40px] text-primary leading-tight mb-6 font-semibold select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
           What We Do
         </h2>
         <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed select-none">

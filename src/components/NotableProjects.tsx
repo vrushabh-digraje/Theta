@@ -12,7 +12,7 @@ export const NotableProjects: FC = () => {
         
         {/* Left Side: Title and Intro block (cols 1 to 5) */}
         <div className="lg:col-span-5 flex flex-col pr-4">
-          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none">
+          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
             Notable Projects
           </h2>
           <div className="h-[2px] w-20 bg-secondary mb-6"></div>

@@ -106,9 +106,9 @@ export const FAQ: FC = () => {
         
         {/* Section Header (Centered) */}
         <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 text-center max-w-4xl mx-auto">
-          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none">
-            Frequently Asked Questions
-          </h2>
+          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
+          Frequently Asked Questions
+        </h2>
         </div>
 
         {/* Split Layout: Accordions Left, Interactive Morphing Image Right */}

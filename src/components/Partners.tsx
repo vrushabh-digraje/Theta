@@ -56,7 +56,7 @@ export const Partners: FC = () => {
         
         {/* Section Header */}
         <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 text-center max-w-4xl mx-auto">
-          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none">
+          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
             Trusted Brands & Technology Partners
           </h2>
           <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed">
