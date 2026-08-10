@@ -18,7 +18,10 @@ export const NotableProjects: FC = () => {
           <div className="h-[2px] w-20 bg-secondary mb-6"></div>
           <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed text-justify">
             THETA Controls has a proven track record in mission-critical defence engineering, delivering 
-            rugged control subsystems designed to withstand high-stress environments.
+            rugged control subsystems designed to withstand high-stress environments. These projects 
+            reflect THETA's ability to meet the stringent reliability, precision, and safety standards 
+            demanded by defence-grade engineering — expertise that carries over into every industrial 
+            solution we deliver.
           </p>
         </div>
 
