@@ -1,4 +1,5 @@
 import { FC, useState, useEffect } from 'react';
+import { Reveal } from './Reveal';
 
 // Import images for the dynamic spotlight block
 import defaultImg from '../assets/images/feature_architecture.jpg';
@@ -101,18 +102,21 @@ export const FAQ: FC = () => {
   }, []);
 
   return (
-    <section className="w-full bg-surface-container border-y border-outline-variant/15 py-20 relative z-10 fade-in">
+    <section id="faq" className="w-full bg-surface-container border-y border-outline-variant/15 py-20 relative z-10">
       <div className="max-w-[1560px] mx-auto px-frame-margin">
         
-        {/* Section Header (Centered) */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 text-center max-w-4xl mx-auto">
-          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
-          Frequently Asked Questions
-        </h2>
-        </div>
+        {/* Section Header with Reveal */}
+        <Reveal>
+          <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 text-center max-w-4xl mx-auto">
+            <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
+              Frequently Asked Questions
+            </h2>
+          </div>
+        </Reveal>
 
-        {/* Split Layout: Accordions Left, Interactive Morphing Image Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        {/* Split Layout with Reveal */}
+        <Reveal delay={0.1}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           
           {/* Left: FAQ Accordion Panel (7 columns) */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-4">
@@ -177,8 +181,8 @@ export const FAQ: FC = () => {
               
             </div>
           </div>
-
         </div>
+      </Reveal>
 
       </div>
     </section>

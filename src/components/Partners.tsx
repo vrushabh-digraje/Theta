@@ -1,113 +1,147 @@
 import type { FC } from 'react';
-import { Link } from 'react-router-dom';
-import hirschmannLogo from '../assets/images/hirschmann.png';
-import beldenLogo from '../assets/images/belden.jpg';
-import niLogo from '../assets/images/ni.png';
-import dinoliteLogo from '../assets/images/dinolite.jpg';
 
-interface PartnerItem {
+// Cropped 9 Principals logos matching reference specification
+import hirschmannLogo from '../assets/images/principals/hirschmann.png';
+import beldenLogo from '../assets/images/principals/belden.png';
+import niLogo from '../assets/images/principals/ni.png';
+import brainchildLogo from '../assets/images/principals/brainchild.png';
+import jkLogo from '../assets/images/principals/jk.png';
+import roboteqLogo from '../assets/images/principals/roboteq.png';
+import autonicsLogo from '../assets/images/principals/autonics.png';
+import tibboLogo from '../assets/images/principals/tibbo.png';
+import dinoliteLogo from '../assets/images/principals/dinolite.png';
+
+interface PrincipalItem {
   id: string;
   name: string;
   logo: string;
-  description: string;
-  link: string;
+  websiteUrl: string;
+  websiteDisplay: string;
 }
 
-const partners: PartnerItem[] = [
+const principals: PrincipalItem[] = [
+  // Row 1
   {
     id: 'hirschmann',
-    name: 'Hirschmann Electronics',
+    name: 'Hirschmann – A Belden Brand',
     logo: hirschmannLogo,
-    description: 'As a partner for Hirschmann Electronics, THETA delivers industrial Ethernet switches and networking hardware built for rugged, high-reliability environments.',
-    link: '/industrial-networking',
+    websiteUrl: 'https://www.belden.com/products/industrial-networking-cybersecurity/hirschmann',
+    websiteDisplay: 'belden.com/hirschmann',
   },
   {
-    id: 'tofino',
-    name: 'Tofino Security',
+    id: 'belden',
+    name: 'Belden',
     logo: beldenLogo,
-    description: 'Through our Tofino Security partnership, THETA implements industrial cybersecurity solutions that protect automation networks from unauthorized access and cyber threats.',
-    link: '/industrial-networking',
-  },
-  {
-    id: 'dinolite',
-    name: 'Dino-Lite',
-    logo: dinoliteLogo,
-    description: 'As a Dino-Lite partner, THETA provides digital microscopy solutions used for quality inspection and precision component analysis in industrial settings.',
-    link: '/digital-microscopes',
+    websiteUrl: 'https://www.belden.com',
+    websiteDisplay: 'belden.com',
   },
   {
     id: 'ni',
-    name: 'National Instruments',
+    name: 'National Instruments (Silver Alliance Partner)',
     logo: niLogo,
-    description: 'THETA holds Silver Alliance Partner status with National Instruments, enabling advanced LabVIEW-based PC-instrumentation and test-and-measurement solutions for clients.',
-    link: '/system-integration',
+    websiteUrl: 'https://www.ni.com',
+    websiteDisplay: 'ni.com',
+  },
+  // Row 2
+  {
+    id: 'brainchild',
+    name: 'BrainChild Electronic Co., Ltd.',
+    logo: brainchildLogo,
+    websiteUrl: 'https://www.brainchild.com.tw',
+    websiteDisplay: 'brainchild.com.tw',
+  },
+  {
+    id: 'jk',
+    name: 'JK Instruments',
+    logo: jkLogo,
+    websiteUrl: 'https://www.jkinstruments.com',
+    websiteDisplay: 'jkinstruments.com',
+  },
+  {
+    id: 'roboteq',
+    name: 'RoboteQ',
+    logo: roboteqLogo,
+    websiteUrl: 'https://www.roboteq.com',
+    websiteDisplay: 'roboteq.com',
+  },
+  // Row 3
+  {
+    id: 'autonics',
+    name: 'Autonics – Sensors & Controllers',
+    logo: autonicsLogo,
+    websiteUrl: 'https://www.autonics.com',
+    websiteDisplay: 'autonics.com',
+  },
+  {
+    id: 'tibbo',
+    name: 'Tibbo Technology',
+    logo: tibboLogo,
+    websiteUrl: 'https://tibbo.com',
+    websiteDisplay: 'tibbo.com',
+  },
+  {
+    id: 'dinolite',
+    name: 'Dino-Lite Digital Microscope',
+    logo: dinoliteLogo,
+    websiteUrl: 'https://www.dino-lite.com',
+    websiteDisplay: 'dino-lite.com',
   },
 ];
 
 /**
- * Partners component representing Section 5 (Trusted Brands & Technology Partners).
- * Styled as a responsive grid of cards with brand blue subheadings, interactive
- * card scales, and expanding bottom progress indicators on hover.
+ * Principals component displaying the 9 official technology principals.
+ * Section header styled to match the existing homepage sections (Group Companies, Industries, What We Do)
+ * with a category tracker, bold H2, subtitle, and an interactive 3x3 logo card grid.
  */
+import { Reveal, RevealGroup, RevealItem } from './Reveal';
+
 export const Partners: FC = () => {
   return (
-    <section className="bg-surface-container-low pt-20 pb-32 border-t border-outline-variant/15 relative z-10 fade-in mt-16">
-      <div className="max-w-[1440px] mx-auto px-frame-margin">
+    <section 
+      id="principals" 
+      className="bg-surface-container/50 border-t border-outline-variant/15 py-16 sm:py-20 lg:py-24 relative z-10"
+    >
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin">
         
-        {/* Section Header */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 text-center max-w-4xl mx-auto">
-          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
-            Trusted Brands & Technology Partners
-          </h2>
-          <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed">
-            THETA partners with globally recognized industrial technology brands, giving clients access 
-            to certified, industry-standard components and systems.
-          </p>
-        </div>
+        {/* Section Header with Reveal */}
+        <Reveal>
+          <div className="w-full mb-12 sm:mb-16 text-center max-w-3xl mx-auto">
+            <span className="font-body text-[11px] sm:text-xs font-semibold text-secondary tracking-[0.35em] mb-3 sm:mb-4 uppercase block select-none">
+              Strategic Alliances & Brands
+            </span>
+            <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-semibold text-primary mb-4 sm:mb-5 leading-tight select-none transition-all duration-300 hover:text-secondary cursor-default">
+              Principals
+            </h2>
+            <p className="font-body text-xs sm:text-sm lg:text-base text-on-surface-variant leading-relaxed">
+              Authorized global technology principals delivering certified industrial networking, sensors, 
+              motion control, and test instrumentation with direct factory warranty and support.
+            </p>
+          </div>
+        </Reveal>
 
-        {/* Grid Layout (4 partners, responsive layout) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {partners.map((p) => (
-            <Link 
-              key={p.id} 
-              to={p.link}
-              className="flex flex-col justify-between p-6 bg-surface-container-lowest border border-outline-variant/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-md hover:border-secondary group cursor-pointer text-left decoration-none"
-            >
-              <div>
-                {/* Logo Box */}
-                <div className="h-16 w-full flex items-center justify-center mb-6 bg-background rounded-sm p-3 overflow-hidden">
-                  <img 
-                    src={p.logo} 
-                    alt={`${p.name} logo`} 
-                    className="max-h-full max-w-full object-contain grayscale opacity-65 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" 
+        {/* 3x3 Grid Layout with Staggered Entrance */}
+        <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch">
+          {principals.map((item) => (
+            <RevealItem key={item.id} className="h-full">
+              <a
+                href={item.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-full p-5 sm:p-6 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs transition-all duration-300 group hover:-translate-y-1 hover:shadow-md shadow-2xs"
+                title={`Visit official ${item.name} website`}
+              >
+                {/* Logo Tile */}
+                <div className="h-16 sm:h-20 w-full flex items-center justify-center">
+                  <img
+                    src={item.logo}
+                    alt={item.name}
+                    className="max-h-full max-w-[190px] sm:max-w-[210px] object-contain group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                
-                {/* Partner Name Subheading (H3) */}
-                <h3 className="font-display text-lg sm:text-xl font-medium text-secondary mb-3 group-hover:text-primary transition-colors">
-                  {p.name}
-                </h3>
-                
-                {/* Partner Description */}
-                <p className="font-body text-xs text-on-surface-variant leading-relaxed text-justify">
-                  {p.description}
-                </p>
-              </div>
-
-              {/* Bottom Interactive Area (with Learn More CTA) */}
-              <div className="mt-8 flex flex-col gap-4">
-                <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-secondary group-hover:text-primary transition-colors duration-300 uppercase">
-                  <span>Learn More</span>
-                  <span className="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:translate-x-1.5">
-                    arrow_forward
-                  </span>
-                </div>
-                {/* Expanding Accent Line */}
-                <div className="h-[2px] w-0 bg-secondary group-hover:w-full transition-all duration-300" />
-              </div>
-            </Link>
+              </a>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
 
       </div>
     </section>

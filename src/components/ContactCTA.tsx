@@ -1,17 +1,20 @@
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Reveal } from './Reveal';
+
 /**
  * ContactCTA component representing Section 8 (Get in Touch / Contact CTA)
  * of the SEO content draft. Styled as a premium, fully-clickable interactive banner.
  */
 export const ContactCTA: FC = () => {
   return (
-    <section className="max-w-[1680px] mx-auto px-frame-margin py-12 relative z-10 fade-in">
-      <Link 
-        to="/contact" 
-        className="block bg-primary text-on-primary py-6 px-10 sm:py-8 sm:px-14 flex flex-col md:flex-row md:items-center justify-between gap-8 rounded-xs relative overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:border-secondary/30 border border-transparent group decoration-none cursor-pointer"
-      >
+    <section className="max-w-[1680px] mx-auto px-frame-margin py-12 relative z-10">
+      <Reveal>
+        <Link 
+          to="/contact" 
+          className="block bg-primary text-on-primary py-6 px-10 sm:py-8 sm:px-14 flex flex-col md:flex-row md:items-center justify-between gap-8 rounded-xs relative overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:border-secondary/30 border border-transparent group decoration-none cursor-pointer"
+        >
         {/* Decorative Background Grid Pattern with hover scale/fade */}
         <div className="absolute inset-0 pointer-events-none opacity-5 group-hover:opacity-15 transition-opacity duration-500 technical-background bg-secondary/50 scale-100 group-hover:scale-[1.02] transition-transform duration-500"></div>
         
@@ -37,7 +40,8 @@ export const ContactCTA: FC = () => {
         </div>
 
       </Link>
-    </section>
+    </Reveal>
+  </section>
   );
 };
 

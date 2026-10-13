@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import WhatWeDo from '../components/WhatWeDo';
 import StatsBar from '../components/StatsBar';
+import GroupCompanies from '../components/GroupCompanies';
 import Industries from '../components/Industries';
 import Partners from '../components/Partners';
 import NotableProjects from '../components/NotableProjects';
@@ -22,14 +23,17 @@ export const Home = () => {
       {/* Why Choose THETA Controls stats bar */}
       <StatsBar />
       
+      {/* Group Companies corporate ecosystem */}
+      <GroupCompanies />
+
+      {/* Notable Projects & Defence Track Record section */}
+      <NotableProjects />
+
       {/* Industries We Serve section */}
       <Industries />
       
-      {/* Partners section */}
+      {/* Partners & Technology Alliances section */}
       <Partners />
-      
-      {/* Notable Projects section */}
-      <NotableProjects />
       
       {/* Frequently Asked Questions section */}
       <FAQ />

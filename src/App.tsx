@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import SideMenu from './components/SideMenu';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
+import Products from './pages/Products';
+import Solutions from './pages/Solutions';
 import DefenceSystems from './pages/DefenceSystems';
 import IndustrialNetworking from './pages/IndustrialNetworking';
 import IndustrialAutomation from './pages/IndustrialAutomation';
@@ -30,13 +31,12 @@ function App() {
         {/* Sticky glassmorphic header bar */}
         <Header />
 
-        {/* Side navigation menu drawer */}
-        <SideMenu />
-
         {/* Main Canvas containing active page with grid backdrop */}
         <main className="relative overflow-hidden min-h-screen technical-background flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/solutions" element={<Solutions />} />
             <Route path="/defence-systems" element={<DefenceSystems />} />
             <Route path="/industrial-networking" element={<IndustrialNetworking />} />
             <Route path="/industrial-automation" element={<IndustrialAutomation />} />

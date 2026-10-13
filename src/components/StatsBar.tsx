@@ -40,26 +40,31 @@ const stats: StatItem[] = [
  * Reconstructed into a premium, interactive split spotlight layout (selector list on left,
  * dynamic detail board on right), completely eliminating the card grid design.
  */
+import { Reveal } from './Reveal';
+
 export const StatsBar: FC = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
 
   return (
-    <section className="bg-surface-container border-y border-outline-variant/15 py-20 relative z-10 fade-in">
+    <section className="bg-surface-container border-y border-outline-variant/15 py-20 relative z-10">
       <div className="max-w-[1440px] mx-auto px-frame-margin">
         
-        {/* Section Header */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 text-center max-w-4xl mx-auto">
-          <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
-            Why Choose THETA Controls
-          </h2>
-          <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed">
-            Four decades of engineering discipline back every THETA solution — from leadership pedigree 
-            to manufacturing scale, here's what sets us apart.
-          </p>
-        </div>
+        {/* Section Header with Reveal */}
+        <Reveal>
+          <div className="w-full px-4 sm:px-6 lg:px-8 mb-16 text-center max-w-4xl mx-auto">
+            <h2 className="font-display text-[28px] sm:text-[38px] lg:text-[44px] font-semibold text-primary mb-6 leading-tight select-none transition-all duration-500 hover:text-secondary hover:tracking-wide cursor-default">
+              Why Choose THETA Controls
+            </h2>
+            <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed">
+              Four decades of engineering discipline back every THETA solution — from leadership pedigree 
+              to manufacturing scale, here's what sets us apart.
+            </p>
+          </div>
+        </Reveal>
 
-        {/* Spotlight Layout (Selector List on Left, Active Board on Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Spotlight Layout with Reveal */}
+        <Reveal delay={0.1}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Column: Interactive Selector List */}
           <div className="lg:col-span-5 flex flex-col justify-center space-y-4">
@@ -130,8 +135,8 @@ export const StatsBar: FC = () => {
               );
             })}
           </div>
-
         </div>
+      </Reveal>
 
       </div>
     </section>
