@@ -124,7 +124,7 @@ export const SideMenu: React.FC = () => {
             Home
           </Link>
 
-          {/* Segments - Expandable Accordion Menu */}
+          {/* Products - Expandable Accordion Menu */}
           <div className="space-y-3">
             <button 
               onClick={toggleSegments}
@@ -132,9 +132,9 @@ export const SideMenu: React.FC = () => {
             >
               <div className="flex items-center gap-4 select-none">
                 <span className="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">
-                  category
+                  inventory_2
                 </span>
-                Segments
+                Products
               </div>
               <span className={`material-symbols-outlined text-[16px] transition-transform duration-300 ${isSegmentsOpen ? 'rotate-180' : ''}`}>
                 expand_more

@@ -71,10 +71,10 @@ export const Footer: FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Segments & Products (Cols 5 to 7 - Slightly Reduced) */}
+          {/* Column 2: Products & Solutions (Cols 5 to 7 - Slightly Reduced) */}
           <div className="lg:col-span-3">
             <span className="font-body text-xs font-bold text-primary tracking-widest uppercase block mb-4">
-              Segments & Products
+              Products & Solutions
             </span>
             <ul className="space-y-2.5 font-body text-xs text-on-surface-variant">
               <li>

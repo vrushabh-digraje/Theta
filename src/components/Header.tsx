@@ -155,7 +155,7 @@ export const Header: FC = () => {
             Home
           </Link>
 
-          {/* Segments Dropdown (Click to open Products & Solutions) */}
+          {/* Products Dropdown (Click to open Products & Solutions) */}
           <div className="relative">
             <button
               onClick={(e) => handleDropdownToggle('segments', e)}
@@ -163,7 +163,7 @@ export const Header: FC = () => {
                 activeDropdown === 'segments' ? 'text-secondary' : 'text-on-surface-variant'
               }`}
             >
-              <span>Segments</span>
+              <span>Products</span>
               <span className={`material-symbols-outlined text-[16px] transition-transform duration-200 ${
                 activeDropdown === 'segments' ? 'rotate-180 text-secondary' : ''
               }`}>
@@ -183,7 +183,7 @@ export const Header: FC = () => {
                 <div className={`${hoveredSegment ? 'w-[280px] p-4 shrink-0 flex flex-col justify-between' : 'space-y-3'}`}>
                   <div>
                     <div className="text-[10px] font-bold text-outline uppercase tracking-wider px-2 pb-2 mb-2 border-b border-outline-variant/15 flex items-center justify-between">
-                      <span>Segments</span>
+                      <span>Products & Solutions</span>
                       <span className="text-[9px] lowercase text-outline font-normal">click to open page</span>
                     </div>
 
@@ -513,15 +513,15 @@ export const Header: FC = () => {
             <span>Home</span>
           </Link>
 
-          {/* Segments Mobile Accordion */}
+          {/* Products Mobile Accordion */}
           <div className="border-b border-outline-variant/15 pb-2">
             <button
               onClick={() => setMobileSegmentsOpen(!mobileSegmentsOpen)}
               className="w-full flex items-center justify-between text-left font-body text-xs font-bold uppercase tracking-wider text-primary hover:text-secondary py-2 cursor-pointer"
             >
               <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-[20px] text-secondary">category</span>
-                <span>Segments</span>
+                <span className="material-symbols-outlined text-[20px] text-secondary">inventory_2</span>
+                <span>Products</span>
               </div>
               <span className={`material-symbols-outlined text-[18px] transition-transform duration-200 ${
                 mobileSegmentsOpen ? 'rotate-180' : ''
