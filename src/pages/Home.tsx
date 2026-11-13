@@ -1,44 +1,89 @@
 import Hero from '../components/Hero';
-import WhatWeDo from '../components/WhatWeDo';
 import StatsBar from '../components/StatsBar';
 import GroupCompanies from '../components/GroupCompanies';
-import Industries from '../components/Industries';
 import Partners from '../components/Partners';
-import NotableProjects from '../components/NotableProjects';
-import FAQ from '../components/FAQ';
 import ContactCTA from '../components/ContactCTA';
 
+// Structured FAQ Schema for SEO crawlers (Schema.org FAQPage)
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What industries does THETA Controls serve?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'THETA Controls serves oil & gas, chemical, manufacturing, defence, and smart city sectors, providing process control instruments, industrial networking, automation systems, and IoT solutions.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is THETA Controls located?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'THETA Controls is headquartered at 1 Electronic Estate, Unit 1, near City Pride Theatre, Satara Road, Pune, Maharashtra 411009 with a 7,600 sq.ft. manufacturing and integration facility.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What products does THETA Controls manufacture?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'THETA manufactures process control instruments, PC-based automation systems, industrial networking equipment, defence electronics, and IoT gateways, including PID temperature controllers, paperless recorders, and thyristor power controllers.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is THETA Controls an IIT-led company?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, THETA Controls was founded in 1981 and is led by an IIT graduate with over three decades of experience, backed by a 75-member engineering team and a CRISIL MSME 2B rating.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does THETA Controls work with government or defence organizations?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Yes, THETA Controls has contributed to controller and instrument development for DRDO and subsystem development for the ROV 'Daksh'.",
+      },
+    },
+  ],
+};
+
 /**
- * Home page component bundling all SEO-compliant sections.
+ * Streamlined Homepage:
+ * 1. Hero (Slideshow + Who We Are)
+ * 2. StatsBar (Compact 1-row credibility metric strip)
+ * 3. Group Companies (Core corporate divisions)
+ * 4. Partners (Technology principals: NI, Belden, Hirschmann, etc.)
+ * 5. ContactCTA (Sales & inquiry banner)
+ *
+ * Preserves Google FAQPage Schema.org structured data in head for search crawlers.
  */
 export const Home = () => {
   return (
     <>
-      {/* Core split layout hero block */}
+      {/* Search Engine Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      {/* 1. Core Hero & Who We Are Block */}
       <Hero />
-      
-      {/* What We Do grid section */}
-      <WhatWeDo />
-      
-      {/* Why Choose THETA Controls stats bar */}
+
+      {/* 2. Compact 1-Row Credibility & Trust Metric Strip */}
       <StatsBar />
-      
-      {/* Group Companies corporate ecosystem */}
+
+      {/* 3. Group Companies Corporate Ecosystem */}
       <GroupCompanies />
 
-      {/* Notable Projects & Defence Track Record section */}
-      <NotableProjects />
-
-      {/* Industries We Serve section */}
-      <Industries />
-      
-      {/* Partners & Technology Alliances section */}
+      {/* 4. Technology Principals & Global Alliances */}
       <Partners />
-      
-      {/* Frequently Asked Questions section */}
-      <FAQ />
-      
-      {/* Contact Call-to-Action section */}
+
+      {/* 5. Contact Call-to-Action */}
       <ContactCTA />
     </>
   );

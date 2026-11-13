@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Reveal } from './Reveal';
 
-import heroImg from '../assets/images/hero_network_switch.jpg';
 import whoImg from '../assets/images/WHO_WE_ARE.jpg';
 import ds1Img from '../assets/images/hero_DS1.jpg';
 import inet1Img from '../assets/images/hero_INet1.jpg';
@@ -17,13 +16,11 @@ const slideshowImages = [
 ];
 
 /**
- * Hero component rendering three separate sections:
+ * Hero component rendering:
  * Section 1: Full-bleed (edge-to-edge) sliding background slideshow with left-aligned corporate copy content.
  * Section 2: "Who We Are" grid split block (left-aligned circuit image, right-aligned corporate answer copy).
- * Section 3: Widescreen framed telemetry hardware visual (hero_network_switch.jpg) constrained to margins.
  */
 export const Hero: React.FC = () => {
-  const svgRef = useRef<SVGSVGElement | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -35,19 +32,6 @@ export const Hero: React.FC = () => {
     }, 5500);
     return () => clearInterval(timer);
   }, [isPaused]);
-
-  // Implement the mouse move parallax effect for background SVGs in section 3
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!svgRef.current) return;
-      const moveX = (e.clientX - window.innerWidth / 2) / 100;
-      const moveY = (e.clientY - window.innerHeight / 2) / 100;
-      svgRef.current.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   return (
     <>
@@ -123,7 +107,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* SECTION 2: "Who We Are" Grid split block */}
-      <div id="who-we-are" className="max-w-[1440px] mx-auto px-frame-margin mt-32 pt-8 pb-28 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+      <div id="who-we-are" className="max-w-[1440px] mx-auto px-frame-margin mt-16 sm:mt-24 pt-4 pb-16 sm:pb-20 grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-center">
         
         {/* Left Side: Visual Image representation (cols 1 to 6) */}
         <Reveal className="md:col-span-6 relative premium-frame overflow-hidden bg-surface-container-low select-none">
@@ -153,66 +137,6 @@ export const Hero: React.FC = () => {
           </p>
         </Reveal>
 
-      </div>
-
-      {/* SECTION 3: Standard Constrained Telemetry Switchboard Visual */}
-      <div className="max-w-[1440px] mx-auto px-frame-margin mt-12 pb-16 relative">
-        {/* Background Parallax SVG Graphics */}
-        <div className="absolute inset-0 pointer-events-none opacity-15 overflow-hidden">
-          <svg 
-            ref={svgRef}
-            className="w-full h-full transition-transform duration-300 ease-out" 
-            fill="none" 
-            viewBox="0 0 1440 800" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle 
-              className="text-secondary line-draw" 
-              cx="1200" 
-              cy="200" 
-              r="300" 
-              stroke="currentColor" 
-              strokeWidth="0.5"
-            />
-            <path 
-              className="text-secondary line-draw" 
-              d="M-100 400L400 400M600 100V700" 
-              stroke="currentColor" 
-              strokeWidth="0.5"
-            />
-            <rect 
-              className="text-secondary line-draw" 
-              height="600" 
-              stroke="currentColor" 
-              strokeDasharray="8 8" 
-              strokeWidth="0.5" 
-              width="1240" 
-              x="100" 
-              y="100"
-            />
-          </svg>
-        </div>
-
-        {/* Switchboard Image Visual */}
-        <div className="relative w-full aspect-[21/9] premium-frame bg-surface-container-low group fade-in">
-          <img 
-            className="w-full h-full object-cover grayscale-[0.1] group-hover:scale-102 transition-transform duration-[2000ms] ease-out select-none" 
-            src={heroImg}
-            alt="Premium Industrial Electronics Switchboard Hardware"
-          />
-
-          {/* Inner Border Frame */}
-          <div className="absolute inset-0 border-[12px] sm:border-[24px] border-surface-container-lowest pointer-events-none"></div>
-
-
-
-          {/* Device Marker */}
-          <div className="absolute bottom-6 right-6 sm:bottom-12 sm:right-12 select-none bg-surface-container-lowest/80 sm:bg-transparent px-4 py-2 sm:p-0 rounded-md backdrop-blur-xs sm:backdrop-blur-none">
-            <span className="font-display text-[16px] sm:text-[24px] text-primary/30 font-medium">
-              TCSPL-NET.v4
-            </span>
-          </div>
-        </div>
       </div>
     </>
   );
