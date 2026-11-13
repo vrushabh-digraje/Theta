@@ -1,5 +1,4 @@
 import Hero from '../components/Hero';
-import StatsBar from '../components/StatsBar';
 import GroupCompanies from '../components/GroupCompanies';
 import Partners from '../components/Partners';
 import ContactCTA from '../components/ContactCTA';
@@ -55,10 +54,9 @@ const faqSchema = {
 /**
  * Streamlined Homepage:
  * 1. Hero (Slideshow + Who We Are)
- * 2. StatsBar (Compact 1-row credibility metric strip)
- * 3. Group Companies (Core corporate divisions)
- * 4. Partners (Technology principals: NI, Belden, Hirschmann, etc.)
- * 5. ContactCTA (Sales & inquiry banner)
+ * 2. Group Companies (Core corporate divisions)
+ * 3. Partners (Technology principals: NI, Belden, Hirschmann, etc.)
+ * 4. ContactCTA (Sales & inquiry banner)
  *
  * Preserves Google FAQPage Schema.org structured data in head for search crawlers.
  */
@@ -74,10 +72,7 @@ export const Home = () => {
       {/* 1. Core Hero & Who We Are Block */}
       <Hero />
 
-      {/* 2. Compact 1-Row Credibility & Trust Metric Strip */}
-      <StatsBar />
-
-      {/* 3. Group Companies Corporate Ecosystem */}
+      {/* 2. Group Companies Corporate Ecosystem */}
       <GroupCompanies />
 
       {/* 4. Technology Principals & Global Alliances */}
