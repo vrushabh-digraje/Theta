@@ -26,33 +26,33 @@ export const Footer: FC = () => {
               />
             </Link>
 
-            {/* Slightly reduced concise writeup */}
-            <p className="font-body text-xs text-on-surface-variant leading-relaxed mb-5">
+            {/* Concise writeup with improved readability */}
+            <p className="font-body text-sm text-on-surface-variant leading-relaxed mb-5">
               CRISIL-rated (MSME 2B), IIT-led engineering partner specializing in industrial automation, 
               defence electronics, and IoT networking systems since 1981.
             </p>
 
-            {/* Pune HQ Contact Details (Clean & Consistent with Website Layout) */}
-            <div className="space-y-3 font-body text-xs text-on-surface-variant mb-6">
+            {/* Pune HQ Contact Details (Clear & Readable font size) */}
+            <div className="space-y-3 font-body text-sm text-on-surface-variant mb-6">
               <div className="flex items-start gap-2.5">
-                <span className="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">location_on</span>
-                <span>1, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India</span>
+                <span className="material-symbols-outlined text-[20px] text-secondary shrink-0 mt-0.5">location_on</span>
+                <span className="leading-snug">1, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-[18px] text-secondary shrink-0">call</span>
+                <span className="material-symbols-outlined text-[20px] text-secondary shrink-0">call</span>
                 <a 
                   href="tel:+912066268600" 
-                  className="font-bold text-sm text-primary hover:text-secondary transition-colors"
+                  className="font-bold text-base text-primary hover:text-secondary transition-colors"
                   title="Call Pune HQ"
                 >
                   +91-20 66 268 600
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-[18px] text-secondary shrink-0">mail</span>
+                <span className="material-symbols-outlined text-[20px] text-secondary shrink-0">mail</span>
                 <a 
                   href="mailto:info@thetacontrols.com" 
-                  className="font-semibold text-xs text-primary hover:text-secondary transition-colors"
+                  className="font-semibold text-sm text-primary hover:text-secondary transition-colors"
                   title="Email Theta Controls"
                 >
                   info@thetacontrols.com
@@ -62,118 +62,118 @@ export const Footer: FC = () => {
 
             {/* Trust Badges */}
             <div className="flex flex-wrap gap-2">
-              <span className="bg-surface-container-low text-secondary text-[10px] font-bold px-2 py-0.5 rounded-xs uppercase tracking-wider border border-outline-variant/20">
+              <span className="bg-surface-container-low text-secondary text-[11px] font-bold px-2.5 py-1 rounded-xs uppercase tracking-wider border border-outline-variant/20">
                 CRISIL MSME 2B
               </span>
-              <span className="bg-surface-container-low text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded-xs uppercase tracking-wider border border-outline-variant/20">
+              <span className="bg-surface-container-low text-on-surface-variant text-[11px] font-bold px-2.5 py-1 rounded-xs uppercase tracking-wider border border-outline-variant/20">
                 7,600 sq.ft Facility
               </span>
             </div>
           </div>
 
-          {/* Column 2: Products & Solutions (Cols 5 to 7 - Slightly Reduced) */}
+          {/* Column 2: Products & Solutions (Cols 5 to 7 - Readable Navigation) */}
           <div className="lg:col-span-3">
-            <span className="font-body text-xs font-bold text-primary tracking-widest uppercase block mb-4">
+            <span className="font-body text-sm sm:text-[15px] font-bold text-primary tracking-wider uppercase block mb-4">
               Products & Solutions
             </span>
-            <ul className="space-y-2.5 font-body text-xs text-on-surface-variant">
+            <ul className="space-y-3 font-body text-sm text-on-surface-variant">
               <li>
-                <Link to="/products" className="text-secondary font-bold hover:underline flex items-center gap-1">
+                <Link to="/products" className="text-secondary font-bold text-sm hover:underline flex items-center gap-1.5">
                   <span>All Products Catalog (11)</span>
-                  <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
                 </Link>
               </li>
               <li>
-                <Link to="/solutions" className="text-secondary font-bold hover:underline flex items-center gap-1 pb-1 border-b border-outline-variant/15 mb-2">
+                <Link to="/solutions" className="text-secondary font-bold text-sm hover:underline flex items-center gap-1.5 pb-1.5 border-b border-outline-variant/15 mb-2.5">
                   <span>Turnkey Solutions (4)</span>
-                  <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
                 </Link>
               </li>
               <li>
-                <Link to="/products?product=industrial-switches" className="hover:text-secondary transition-colors block">
+                <Link to="/products?product=industrial-switches" className="hover:text-secondary transition-colors block text-sm">
                   Industrial Switches & Routers
                 </Link>
               </li>
               <li>
-                <Link to="/products?product=power-controllers" className="hover:text-secondary transition-colors block">
+                <Link to="/products?product=power-controllers" className="hover:text-secondary transition-colors block text-sm">
                   PID & Power Controllers
                 </Link>
               </li>
               <li>
-                <Link to="/products?product=paperless-recorders" className="hover:text-secondary transition-colors block">
+                <Link to="/products?product=paperless-recorders" className="hover:text-secondary transition-colors block text-sm">
                   Paperless Recorders
                 </Link>
               </li>
               <li>
-                <Link to="/products?product=rov" className="hover:text-secondary transition-colors block">
+                <Link to="/products?product=rov" className="hover:text-secondary transition-colors block text-sm">
                   ROV – Defence Robotics
                 </Link>
               </li>
               <li>
-                <Link to="/products?product=tibbo-tps" className="hover:text-secondary transition-colors block">
+                <Link to="/products?product=tibbo-tps" className="hover:text-secondary transition-colors block text-sm">
                   IoT Gateways & Wireless Sensors
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Group Companies (Cols 8 to 10) */}
+          {/* Column 3: Group Companies (Cols 8 to 10 - Readable Navigation) */}
           <div className="lg:col-span-3">
-            <span className="font-body text-xs font-bold text-primary tracking-widest uppercase block mb-4">
+            <span className="font-body text-sm sm:text-[15px] font-bold text-primary tracking-wider uppercase block mb-4">
               Group Companies
             </span>
-            <ul className="space-y-2.5 font-body text-xs text-on-surface-variant">
+            <ul className="space-y-3 font-body text-sm text-on-surface-variant">
               <li>
-                <Link to="/industrial-automation" className="hover:text-secondary transition-colors block">
+                <Link to="/industrial-automation" className="hover:text-secondary transition-colors block text-sm">
                   Theta Controls & Systems
                 </Link>
               </li>
               <li>
-                <Link to="/defence-systems" className="hover:text-secondary transition-colors block">
+                <Link to="/defence-systems" className="hover:text-secondary transition-colors block text-sm">
                   Theta Defence & Aerospace
                 </Link>
               </li>
               <li>
-                <Link to="/iot-components" className="hover:text-secondary transition-colors block">
+                <Link to="/iot-components" className="hover:text-secondary transition-colors block text-sm">
                   Theta IoT Technologies
                 </Link>
               </li>
               <li>
-                <Link to="/system-integration" className="hover:text-secondary transition-colors block">
+                <Link to="/system-integration" className="hover:text-secondary transition-colors block text-sm">
                   Theta Test & Automation
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Quick Navigation & Media (Cols 11 to 12) */}
+          {/* Column 4: Quick Navigation & Media (Cols 11 to 12 - Readable Navigation) */}
           <div className="lg:col-span-2">
-            <span className="font-body text-xs font-bold text-primary tracking-widest uppercase block mb-4">
+            <span className="font-body text-sm sm:text-[15px] font-bold text-primary tracking-wider uppercase block mb-4">
               Company & Media
             </span>
-            <ul className="space-y-2.5 font-body text-xs text-on-surface-variant">
+            <ul className="space-y-3 font-body text-sm text-on-surface-variant">
               <li>
-                <a href="#who-we-are" className="hover:text-secondary transition-colors block">
+                <Link to="/#who-we-are" className="hover:text-secondary transition-colors block text-sm">
                   About THETA
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#notable-projects" className="hover:text-secondary transition-colors block">
-                  Notable Projects
-                </a>
+                <Link to="/defence-systems" className="hover:text-secondary transition-colors block text-sm">
+                  Defence Projects
+                </Link>
               </li>
               <li>
-                <Link to="/news" className="hover:text-secondary transition-colors block">
+                <Link to="/news" className="hover:text-secondary transition-colors block text-sm">
                   News & Press
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-secondary transition-colors block">
+                <Link to="/careers" className="hover:text-secondary transition-colors block text-sm">
                   Careers (75+ Engineers)
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-secondary font-medium hover:underline block">
+                <Link to="/contact" className="text-secondary font-bold hover:underline block text-sm">
                   Contact Pune HQ
                 </Link>
               </li>

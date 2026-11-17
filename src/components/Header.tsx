@@ -69,7 +69,7 @@ const mediaItems = [
  */
 export const Header: FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [hoveredSegment, setHoveredSegment] = useState<'products' | 'solutions' | null>(null);
+  const [isSolutionsHovered, setIsSolutionsHovered] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [mobileSegmentsOpen, setMobileSegmentsOpen] = useState<boolean>(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState<boolean>(true);
@@ -83,7 +83,7 @@ export const Header: FC = () => {
   // Close all menus on route change
   useEffect(() => {
     setActiveDropdown(null);
-    setHoveredSegment(null);
+    setIsSolutionsHovered(false);
     setIsMobileMenuOpen(false);
     setMobileSegmentsOpen(false);
     setMobileCompaniesOpen(false);
@@ -95,13 +95,13 @@ export const Header: FC = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setActiveDropdown(null);
-        setHoveredSegment(null);
+        setIsSolutionsHovered(false);
       }
     };
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setActiveDropdown(null);
-        setHoveredSegment(null);
+        setIsSolutionsHovered(false);
         setIsMobileMenuOpen(false);
       }
     };
@@ -117,13 +117,7 @@ export const Header: FC = () => {
     if (e) {
       e.stopPropagation();
     }
-    setActiveDropdown((prev) => {
-      const next = prev === menuName ? null : menuName;
-      if (next === 'segments') {
-        setHoveredSegment(null);
-      }
-      return next;
-    });
+    setActiveDropdown((prev) => (prev === menuName ? null : menuName));
   };
 
   return (
@@ -155,227 +149,194 @@ export const Header: FC = () => {
             Home
           </Link>
 
-          {/* Products Dropdown (Click to open Products & Solutions) */}
+          {/* Products Dropdown (Directly opens Products Portfolio with Solutions submenu shifted inside) */}
           <div className="relative">
             <button
-              onClick={(e) => handleDropdownToggle('segments', e)}
+              onClick={(e) => handleDropdownToggle('products', e)}
               className={`flex items-center gap-1.5 py-3 font-body text-xs font-semibold tracking-wider uppercase hover:text-secondary transition-colors duration-200 cursor-pointer select-none ${
-                activeDropdown === 'segments' ? 'text-secondary' : 'text-on-surface-variant'
+                activeDropdown === 'products' ? 'text-secondary' : 'text-on-surface-variant'
               }`}
             >
               <span>Products</span>
               <span className={`material-symbols-outlined text-[16px] transition-transform duration-200 ${
-                activeDropdown === 'segments' ? 'rotate-180 text-secondary' : ''
+                activeDropdown === 'products' ? 'rotate-180 text-secondary' : ''
               }`}>
                 expand_more
               </span>
             </button>
 
-            {/* Segments Dropdown Menu */}
-            {activeDropdown === 'segments' && (
+            {/* Products Dropdown Menu with Hoverable Solutions Submenu */}
+            {activeDropdown === 'products' && (
               <div 
-                onMouseLeave={() => setHoveredSegment(null)}
-                className={`absolute top-full -left-6 bg-surface-container-lowest border border-outline-variant/25 shadow-2xl rounded-b-xs z-50 fade-in transition-all duration-200 ${
-                  hoveredSegment ? 'w-[780px] flex divide-x divide-outline-variant/15' : 'w-[320px] p-4'
-                }`}
+                className="absolute top-full -left-12 w-[600px] bg-surface-container-lowest border border-outline-variant/25 shadow-2xl rounded-b-xs z-50 fade-in p-5"
               >
-                {/* Left Side: Segments Menu (Shows only Products and Solutions) */}
-                <div className={`${hoveredSegment ? 'w-[280px] p-4 shrink-0 flex flex-col justify-between' : 'space-y-3'}`}>
-                  <div>
-                    <div className="text-[10px] font-bold text-outline uppercase tracking-wider px-2 pb-2 mb-2 border-b border-outline-variant/15 flex items-center justify-between">
-                      <span>Products & Solutions</span>
-                      <span className="text-[9px] lowercase text-outline font-normal">click to open page</span>
-                    </div>
-
-                    <div className="space-y-2">
-                      {/* 1. Products Option */}
-                      <Link
-                        to="/products"
-                        onClick={() => setActiveDropdown(null)}
-                        onMouseEnter={() => setHoveredSegment('products')}
-                        className={`flex items-center justify-between p-3 rounded-xs border transition-all duration-200 cursor-pointer group ${
-                          hoveredSegment === 'products'
-                            ? 'bg-secondary/10 border-secondary text-primary'
-                            : 'border-outline-variant/20 hover:border-secondary/40 hover:bg-surface-container-low/70'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-9 h-9 rounded-xs flex items-center justify-center transition-colors ${
-                            hoveredSegment === 'products' 
-                              ? 'bg-secondary text-white' 
-                              : 'bg-surface-container text-secondary group-hover:bg-secondary group-hover:text-white'
-                          }`}>
-                            <span className="material-symbols-outlined text-[20px]">inventory_2</span>
-                          </div>
-                          <div>
-                            <span className="font-body text-xs font-bold text-primary block group-hover:text-secondary transition-colors">
-                              Products
-                            </span>
-                            <span className="font-body text-[10px] text-outline block">
-                              11 Hardware Lines
-                            </span>
-                          </div>
-                        </div>
-                        <span className={`material-symbols-outlined text-[18px] transition-transform ${
-                          hoveredSegment === 'products' ? 'text-secondary translate-x-1' : 'text-outline group-hover:text-secondary'
-                        }`}>
-                          chevron_right
-                        </span>
-                      </Link>
-
-                      {/* 2. Solutions Option */}
-                      <Link
-                        to="/solutions"
-                        onClick={() => setActiveDropdown(null)}
-                        onMouseEnter={() => setHoveredSegment('solutions')}
-                        className={`flex items-center justify-between p-3 rounded-xs border transition-all duration-200 cursor-pointer group ${
-                          hoveredSegment === 'solutions'
-                            ? 'bg-secondary/10 border-secondary text-primary'
-                            : 'border-outline-variant/20 hover:border-secondary/40 hover:bg-surface-container-low/70'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-9 h-9 rounded-xs flex items-center justify-center transition-colors ${
-                            hoveredSegment === 'solutions' 
-                              ? 'bg-secondary text-white' 
-                              : 'bg-surface-container text-secondary group-hover:bg-secondary group-hover:text-white'
-                          }`}>
-                            <span className="material-symbols-outlined text-[20px]">settings_suggest</span>
-                          </div>
-                          <div>
-                            <span className="font-body text-xs font-bold text-primary block group-hover:text-secondary transition-colors">
-                              Solutions
-                            </span>
-                            <span className="font-body text-[10px] text-outline block">
-                              4 Turnkey Divisions
-                            </span>
-                          </div>
-                        </div>
-                        <span className={`material-symbols-outlined text-[18px] transition-transform ${
-                          hoveredSegment === 'solutions' ? 'text-secondary translate-x-1' : 'text-outline group-hover:text-secondary'
-                        }`}>
-                          chevron_right
-                        </span>
-                      </Link>
-                    </div>
+                {/* Header */}
+                <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-outline-variant/15">
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-secondary text-[20px]">inventory_2</span>
+                    <span className="font-body text-xs font-bold uppercase tracking-wider text-primary">
+                      Products Portfolio (11)
+                    </span>
                   </div>
-
-                  {!hoveredSegment && (
-                    <div className="pt-3 border-t border-outline-variant/15 text-[10px] text-outline text-center">
-                      Hover to preview items • Click to open page
-                    </div>
-                  )}
-
-                  {hoveredSegment && (
-                    <div className="pt-3 border-t border-outline-variant/15 text-[10px] text-outline">
-                      Tip: Click category to view full landing page with sub-categories.
-                    </div>
-                  )}
+                  <Link
+                    to="/products"
+                    onClick={() => setActiveDropdown(null)}
+                    className="font-body text-[11px] font-bold text-secondary uppercase hover:underline flex items-center gap-1 group"
+                  >
+                    <span>View All Products</span>
+                    <span className="material-symbols-outlined text-[13px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+                  </Link>
                 </div>
 
-                {/* Right Side: Flyout Details (Revealed when hovered on Products or Solutions) */}
-                {hoveredSegment && (
-                  <div className="flex-1 p-4 bg-surface-container-lowest flex flex-col justify-between">
-                    {/* Hovered on Products */}
-                    {hoveredSegment === 'products' && (
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between pb-2 border-b border-outline-variant/15">
-                          <div className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-secondary text-[18px]">inventory_2</span>
-                            <span className="font-body text-xs font-bold uppercase tracking-wider text-primary">
-                              Products Portfolio (11)
-                            </span>
-                          </div>
-                          <Link
-                            to="/products"
-                            onClick={() => setActiveDropdown(null)}
-                            className="font-body text-[10px] font-bold text-secondary uppercase hover:underline flex items-center gap-1"
-                          >
-                            <span>Open Products Page</span>
-                            <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
-                          </Link>
-                        </div>
+                {/* 2-Column Grid: 11 Products + 1 Solutions Item (Opens all on hover) */}
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1 relative">
+                  
+                  {/* Column 1 (First 6 Products) */}
+                  <div className="space-y-1">
+                    {products.slice(0, 6).map((item, idx) => (
+                      <Link
+                        key={idx}
+                        to={item.link}
+                        onClick={() => setActiveDropdown(null)}
+                        className="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xs text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors group"
+                      >
+                        <span className="material-symbols-outlined text-[15px] text-secondary/70 group-hover:text-secondary shrink-0">
+                          {item.icon}
+                        </span>
+                        <span className="truncate">{item.name}</span>
+                      </Link>
+                    ))}
+                  </div>
 
-                        <div className="grid grid-cols-2 gap-x-3 gap-y-1 max-h-[300px] overflow-y-auto pr-1">
-                          {products.map((item, idx) => (
-                            <Link
-                              key={idx}
-                              to={item.link}
-                              onClick={() => setActiveDropdown(null)}
-                              className="flex items-center gap-2 px-2.5 py-1.5 rounded-xs text-[11px] font-medium text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors group"
-                            >
-                              <span className="material-symbols-outlined text-[15px] text-secondary/70 group-hover:text-secondary shrink-0">
-                                {item.icon}
+                  {/* Column 2 (Remaining 5 Products + Solutions item with hover flyout) */}
+                  <div className="space-y-1">
+                    {products.slice(6).map((item, idx) => (
+                      <Link
+                        key={idx}
+                        to={item.link}
+                        onClick={() => setActiveDropdown(null)}
+                        className="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xs text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-colors group"
+                      >
+                        <span className="material-symbols-outlined text-[15px] text-secondary/70 group-hover:text-secondary shrink-0">
+                          {item.icon}
+                        </span>
+                        <span className="truncate">{item.name}</span>
+                      </Link>
+                    ))}
+
+                    {/* Solutions Item: Hovering opens all turnkey solutions */}
+                    <div 
+                      className="relative group/solutions"
+                      onMouseEnter={() => setIsSolutionsHovered(true)}
+                      onMouseLeave={() => setIsSolutionsHovered(false)}
+                    >
+                      <Link
+                        to="/solutions"
+                        onClick={() => {
+                          setActiveDropdown(null);
+                          setIsSolutionsHovered(false);
+                        }}
+                        className={`flex items-center justify-between px-2.5 py-1.5 rounded-xs text-[11px] font-bold uppercase tracking-wider transition-all border ${
+                          isSolutionsHovered
+                            ? 'bg-secondary text-white border-secondary shadow-xs'
+                            : 'text-secondary bg-secondary/10 border-secondary/40 hover:bg-secondary hover:text-white'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="material-symbols-outlined text-[16px]">
+                            settings_suggest
+                          </span>
+                          <span>Solutions</span>
+                        </div>
+                        <span className={`material-symbols-outlined text-[16px] transition-transform ${
+                          isSolutionsHovered ? 'translate-x-0.5' : ''
+                        }`}>
+                          chevron_right
+                        </span>
+                      </Link>
+
+                      {/* Submenu: Opens all solutions when hovered */}
+                      {isSolutionsHovered && (
+                        <div 
+                          className="absolute left-full bottom-0 ml-2.5 w-[330px] bg-surface-container-lowest border border-outline-variant/25 shadow-2xl rounded-xs p-4 z-50 fade-in before:absolute before:-left-3 before:top-0 before:w-3 before:h-full before:content-['']"
+                          style={{ animationDuration: '150ms' }}
+                        >
+                          <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-outline-variant/15">
+                            <div className="flex items-center gap-1.5">
+                              <span className="material-symbols-outlined text-secondary text-[18px]">settings_suggest</span>
+                              <span className="font-body text-xs font-bold uppercase tracking-wider text-primary">
+                                Turnkey Solutions (4)
                               </span>
-                              <span className="truncate">{item.name}</span>
+                            </div>
+                            <Link
+                              to="/solutions"
+                              onClick={() => {
+                                setActiveDropdown(null);
+                                setIsSolutionsHovered(false);
+                              }}
+                              className="font-body text-[10px] font-bold text-secondary uppercase hover:underline"
+                            >
+                              All Solutions →
                             </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Hovered on Solutions */}
-                    {hoveredSegment === 'solutions' && (
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between pb-2 border-b border-outline-variant/15">
-                          <div className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-secondary text-[18px]">settings_suggest</span>
-                            <span className="font-body text-xs font-bold uppercase tracking-wider text-primary">
-                              Turnkey Solutions (4)
-                            </span>
                           </div>
-                          <Link
-                            to="/solutions"
-                            onClick={() => setActiveDropdown(null)}
-                            className="font-body text-[10px] font-bold text-secondary uppercase hover:underline flex items-center gap-1"
-                          >
-                            <span>Open Solutions Page</span>
-                            <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
-                          </Link>
-                        </div>
 
-                        <div className="grid grid-cols-2 gap-2.5">
-                          {solutions.map((item, idx) => (
-                            <Link
-                              key={idx}
-                              to={item.link}
-                              onClick={() => setActiveDropdown(null)}
-                              className="flex items-start gap-2.5 p-2.5 rounded-xs border border-outline-variant/20 hover:border-secondary hover:bg-surface-container-low transition-all duration-200 group"
-                            >
-                              <span className="material-symbols-outlined text-[18px] text-secondary mt-0.5 group-hover:scale-110 transition-transform">
-                                {item.icon}
-                              </span>
-                              <div>
-                                <span className="font-body text-xs font-bold text-primary group-hover:text-secondary transition-colors block">
-                                  {item.name}
+                          {/* All 4 Solutions */}
+                          <div className="space-y-1.5">
+                            {solutions.map((item, idx) => (
+                              <Link
+                                key={idx}
+                                to={item.link}
+                                onClick={() => {
+                                  setActiveDropdown(null);
+                                  setIsSolutionsHovered(false);
+                                }}
+                                className="flex items-start gap-2.5 p-2 rounded-xs hover:bg-surface-container-low transition-colors group"
+                              >
+                                <span className="material-symbols-outlined text-[17px] text-secondary mt-0.5 group-hover:scale-110 transition-transform shrink-0">
+                                  {item.icon}
                                 </span>
-                                <span className="font-body text-[10px] text-outline block mt-0.5">
-                                  Turnkey Engineering
+                                <div className="min-w-0">
+                                  <span className="font-body text-xs font-bold text-primary group-hover:text-secondary transition-colors block truncate">
+                                    {item.name}
+                                  </span>
+                                  <span className="font-body text-[10px] text-outline block">
+                                    Turnkey Engineering
+                                  </span>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+
+                          {/* NI Alliance Highlight Badge Card */}
+                          <div className="mt-3 pt-2.5 border-t border-outline-variant/15">
+                            <Link
+                              to="/system-integration"
+                              onClick={() => {
+                                setActiveDropdown(null);
+                                setIsSolutionsHovered(false);
+                              }}
+                              className="flex items-center gap-2 p-2 bg-surface-container-low/60 rounded-xs border border-secondary/25 hover:border-secondary transition-all group"
+                            >
+                              <span className="material-symbols-outlined text-secondary text-[16px] shrink-0">workspace_premium</span>
+                              <div className="min-w-0 flex-1">
+                                <span className="font-body text-[10px] font-bold text-primary block leading-tight group-hover:text-secondary transition-colors">
+                                  NI Silver Alliance Partner
+                                </span>
+                                <span className="font-body text-[9px] text-outline block leading-tight">
+                                  PC-based test systems
                                 </span>
                               </div>
+                              <span className="material-symbols-outlined text-[12px] text-secondary group-hover:translate-x-0.5 transition-transform">
+                                arrow_forward
+                              </span>
                             </Link>
-                          ))}
-                        </div>
-
-                        <div className="bg-surface-container-low/70 p-2.5 rounded-xs border border-outline-variant/15 flex items-center justify-between mt-2">
-                          <div className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-secondary text-[16px]">workspace_premium</span>
-                            <span className="font-body text-[11px] text-on-surface-variant font-medium">
-                              National Instruments Silver Alliance Partner
-                            </span>
                           </div>
-                          <Link
-                            to="/system-integration"
-                            onClick={() => setActiveDropdown(null)}
-                            className="text-[10px] font-bold text-secondary uppercase tracking-wider hover:underline"
-                          >
-                            Explore →
-                          </Link>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
-                )}
+                </div>
+
               </div>
             )}
           </div>
