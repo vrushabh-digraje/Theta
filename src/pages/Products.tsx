@@ -140,45 +140,47 @@ export const Products: FC = () => {
         {/* VIEW 1: SPECIFIC PRODUCT SELECTED -> SUB-CATEGORIES OPENED IN FULL CARD FORMAT */}
         {selectedProduct ? (
           <div>
-            {/* Active Product Title & Sub-Categories Count Banner */}
-            <div className="bg-surface-container-low border border-outline-variant/20 rounded-xs p-5 sm:p-6 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xs bg-secondary text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <span className="material-symbols-outlined text-[26px]">{selectedProduct.icon}</span>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 flex-wrap mb-1">
-                    <span className="bg-primary/10 text-primary text-[10px] font-bold uppercase px-2 py-0.5 rounded-xs">
-                      {selectedProduct.category}
-                    </span>
-                    <span className="bg-secondary/15 text-secondary text-[10px] font-bold uppercase px-2 py-0.5 rounded-xs">
-                      {selectedProduct.subCategoryCards.length} Sub-Categories Available
-                    </span>
+            {/* Active Product Title & Sub-Categories Count Banner (Hidden for Paperless Recorders) */}
+            {selectedProduct.id !== 'paperless-recorders' && (
+              <div className="bg-surface-container-low border border-outline-variant/20 rounded-xs p-5 sm:p-6 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xs bg-secondary text-white flex items-center justify-center shrink-0 shadow-xs">
+                    <span className="material-symbols-outlined text-[26px]">{selectedProduct.icon}</span>
                   </div>
-                  <h2 className="font-display text-xl sm:text-2xl font-bold text-primary">
-                    {selectedProduct.name}
-                  </h2>
-                  <p className="font-body text-xs text-on-surface-variant mt-1">
-                    {selectedProduct.tagline}
-                  </p>
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap mb-1">
+                      <span className="bg-primary/10 text-primary text-[10px] font-bold uppercase px-2 py-0.5 rounded-xs">
+                        {selectedProduct.category}
+                      </span>
+                      <span className="bg-secondary/15 text-secondary text-[10px] font-bold uppercase px-2 py-0.5 rounded-xs">
+                        {selectedProduct.subCategoryCards.length} Sub-Categories Available
+                      </span>
+                    </div>
+                    <h2 className="font-display text-xl sm:text-2xl font-bold text-primary">
+                      {selectedProduct.name}
+                    </h2>
+                    <p className="font-body text-xs text-on-surface-variant mt-1">
+                      {selectedProduct.tagline}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <Link
+                    to={selectedProduct.link}
+                    className="px-3.5 py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant/20 text-primary font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors"
+                  >
+                    Division Info
+                  </Link>
+                  <Link
+                    to={`/contact?subject=Inquiry regarding ${selectedProduct.name}`}
+                    className="px-4 py-2 bg-primary hover:bg-secondary text-white font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors shadow-xs"
+                  >
+                    Request Quote
+                  </Link>
                 </div>
               </div>
-
-              <div className="flex items-center gap-2 shrink-0">
-                <Link
-                  to={selectedProduct.link}
-                  className="px-3.5 py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant/20 text-primary font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors"
-                >
-                  Division Info
-                </Link>
-                <Link
-                  to={`/contact?subject=Inquiry regarding ${selectedProduct.name}`}
-                  className="px-4 py-2 bg-primary hover:bg-secondary text-white font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors shadow-xs"
-                >
-                  Request Quote
-                </Link>
-              </div>
-            </div>
+            )}
 
             {/* Sub-Categories In Card Format Grid */}
             <div className="flex items-center justify-between mb-4">
