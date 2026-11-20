@@ -96,15 +96,6 @@ export const Products: FC = () => {
                   : 'Explore THETA Controls’ high-reliability industrial hardware lines. Select any product below to open its complete sub-categories in full card format.'}
               </p>
             </div>
-
-            {/* Quick Switch to Solutions */}
-            <Link
-              to="/solutions"
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-surface-container border border-outline-variant/20 hover:border-secondary hover:text-secondary text-primary font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors shrink-0 shadow-xs"
-            >
-              <span>Explore Turnkey Solutions</span>
-              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </Link>
           </div>
 
 
