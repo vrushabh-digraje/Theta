@@ -99,37 +99,39 @@ export const Products: FC = () => {
           </div>
 
 
-          {/* Search Box & Controls */}
-          <div className="mt-8 pt-6 border-t border-outline-variant/15 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-            <div className="relative w-full max-w-md">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">
-                search
-              </span>
-              <input
-                type="text"
-                placeholder={
-                  selectedProduct
-                    ? `Search sub-categories inside ${selectedProduct.name}...`
-                    : 'Search all products or sub-categories...'
-                }
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-8 py-2 bg-surface-container-lowest border border-outline-variant/30 rounded-xs font-body text-xs text-primary placeholder:text-outline focus:outline-none focus:border-secondary transition-colors"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-[16px]">close</span>
-                </button>
-              )}
-            </div>
+          {/* Search Box & Controls (Hidden for Paperless Recorders) */}
+          {selectedProduct?.id !== 'paperless-recorders' && (
+            <div className="mt-8 pt-6 border-t border-outline-variant/15 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+              <div className="relative w-full max-w-md">
+                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">
+                  search
+                </span>
+                <input
+                  type="text"
+                  placeholder={
+                    selectedProduct
+                      ? `Search sub-categories inside ${selectedProduct.name}...`
+                      : 'Search all products or sub-categories...'
+                  }
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-8 py-2 bg-surface-container-lowest border border-outline-variant/30 rounded-xs font-body text-xs text-primary placeholder:text-outline focus:outline-none focus:border-secondary transition-colors"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-[16px]">close</span>
+                  </button>
+                )}
+              </div>
 
-            <span className="font-body text-xs text-outline uppercase tracking-wider hidden sm:inline">
-              11 Industrial Hardware Lines
-            </span>
-          </div>
+              <span className="font-body text-xs text-outline uppercase tracking-wider hidden sm:inline">
+                11 Industrial Hardware Lines
+              </span>
+            </div>
+          )}
         </div>
       </section>
 
