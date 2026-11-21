@@ -19,6 +19,11 @@ import Blogs from './pages/Blogs';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 
+// Paperless Recorders Product Detail Pages
+import PRSeriesDetail from './pages/PRSeriesDetail';
+import THPLRSeriesDetail from './pages/THPLRSeriesDetail';
+import AerospacePRDetail from './pages/AerospacePRDetail';
+
 /**
  * Main App component assembling the homepage sections and setting up the base page layout.
  * Configured with React Router for routing across navbar pages.
@@ -36,6 +41,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/paperless-recorders/pr-series" element={<PRSeriesDetail />} />
+            <Route path="/products/paperless-recorders/th-plr-series" element={<THPLRSeriesDetail />} />
+            <Route path="/products/paperless-recorders/aerospace-pr-2-0" element={<AerospacePRDetail />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/defence-systems" element={<DefenceSystems />} />
             <Route path="/industrial-networking" element={<IndustrialNetworking />} />
