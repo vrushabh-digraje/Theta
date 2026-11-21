@@ -277,7 +277,7 @@ export const productsData: ProductItem[] = [
     link: '/industrial-automation',
     icon: 'edit_note',
     image: recorderImg,
-    description: 'Advanced touch-screen graphic paperless recorders featuring multi-channel universal inputs, cryptographic audit trails, batch recording, and FDA 21 CFR Part 11 compliant data integrity.',
+    description: 'Paperless recorders provide reliable, real-time monitoring and recording of industrial process data. With flexible input options and advanced data management, they help simplify process monitoring and improve operational efficiency.',
     subCategories: [
       'Multi-Channel Touch Paperless Recorders',
       'Universal Analog Input Logging Modules',
