@@ -4,9 +4,10 @@ import { productsData } from '../data/segmentsData';
 import type { ProductItem, SubCategoryCard } from '../data/segmentsData';
 
 // Paperless Recorders Card Images & Logos
-import prSeriesImg from '../assets/images/hero_PAut1.jpg';
-import thplrImg from '../assets/images/hero_split_electronics.jpg';
-import aeroImg from '../assets/images/hero_DS1.jpg';
+import prSeriesImg from '../assets/images/recorders/pr_series_banner.jpg';
+import thplrImg from '../assets/images/recorders/th_plr_series_banner.jpg';
+import aeroImg from '../assets/images/recorders/aerospace_pr_banner.jpg';
+import thetaLogoCard from '../assets/images/recorders/theta_logo_card.png';
 import brainchildLogo from '../assets/images/principals/brainchild.png';
 
 export const Products: FC = () => {
@@ -215,9 +216,14 @@ export const Products: FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent group-hover:from-black/90 transition-colors" />
                     
-                    {/* Brand Pill */}
-                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-xs border border-white/40 shadow-sm flex items-center gap-2 group-hover:shadow-md transition-shadow">
+                    {/* Brand Logo (Left Side) */}
+                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-2.5 py-1.5 rounded-xs border border-white/40 shadow-sm flex items-center group-hover:shadow-md transition-shadow">
                       <img src={brainchildLogo} alt="BrainChild" className="h-4 object-contain" />
+                    </div>
+
+                    {/* Feature Badge (Right Side) */}
+                    <div className="absolute top-4 right-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
+                      Industrial Recorders
                     </div>
 
                     <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -309,7 +315,13 @@ export const Products: FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent group-hover:from-black/90 transition-colors" />
                     
-                    <div className="absolute top-4 left-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs group-hover:shadow-md transition-shadow">
+                    {/* Brand Logo (Left Side) */}
+                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs p-1 px-2 rounded-xs border border-white/40 shadow-sm flex items-center group-hover:shadow-md transition-shadow">
+                      <img src={thetaLogoCard} alt="THETA Controls" className="h-4 object-contain rounded-2xs" />
+                    </div>
+
+                    {/* Feature Badge (Right Side) */}
+                    <div className="absolute top-4 right-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
                       PID Control + HMI
                     </div>
 
@@ -402,7 +414,13 @@ export const Products: FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent group-hover:from-black/90 transition-colors" />
                     
-                    <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs group-hover:shadow-md transition-shadow">
+                    {/* Brand Logo (Left Side) */}
+                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-2.5 py-1.5 rounded-xs border border-white/40 shadow-sm flex items-center group-hover:shadow-md transition-shadow">
+                      <img src={brainchildLogo} alt="BrainChild" className="h-4 object-contain" />
+                    </div>
+
+                    {/* Feature Badge (Right Side) */}
+                    <div className="absolute top-4 right-4 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
                       AMS2750H Standard
                     </div>
 

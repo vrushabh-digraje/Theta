@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import aeroImg from '../assets/images/hero_DS1.jpg';
+import aeroImg from '../assets/images/recorders/aerospace_pr_banner.jpg';
 import brainchildLogo from '../assets/images/principals/brainchild.png';
 
 export const AerospacePRDetail: FC = () => {
@@ -98,9 +98,14 @@ export const AerospacePRDetail: FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-                  {/* Principal Partner Logo Badge */}
-                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-xs border border-white/40 shadow-sm flex items-center gap-2">
+                  {/* Principal Partner Logo Badge (Left Side) */}
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-xs border border-white/40 shadow-sm flex items-center gap-2">
                     <img src={brainchildLogo} alt="BrainChild" className="h-5 object-contain" />
+                  </div>
+
+                  {/* Feature Badge (Right Side) */}
+                  <div className="absolute top-4 right-4 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
+                    AMS2750H Standard
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 text-white">

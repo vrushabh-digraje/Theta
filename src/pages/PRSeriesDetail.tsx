@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import recorderImg from '../assets/images/hero_PAut1.jpg';
+import recorderImg from '../assets/images/recorders/pr_series_banner.jpg';
 import brainchildLogo from '../assets/images/principals/brainchild.png';
 
 export const PRSeriesDetail: FC = () => {
@@ -104,9 +104,14 @@ export const PRSeriesDetail: FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
-                  {/* Principal Partner Logo Badge */}
-                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-xs border border-white/40 shadow-sm flex items-center gap-2">
+                  {/* Principal Partner Logo Badge (Left Side) */}
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-xs border border-white/40 shadow-sm flex items-center gap-2">
                     <img src={brainchildLogo} alt="BrainChild" className="h-5 object-contain" />
+                  </div>
+
+                  {/* Feature Badge (Right Side) */}
+                  <div className="absolute top-4 right-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
+                    Industrial Recorders
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 text-white">

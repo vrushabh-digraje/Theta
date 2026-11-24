@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import plrImg from '../assets/images/hero_split_electronics.jpg';
+import plrImg from '../assets/images/recorders/th_plr_series_banner.jpg';
+import thetaLogo from '../assets/images/recorders/theta_logo_card.png';
 
 export const THPLRSeriesDetail: FC = () => {
   const [activeModelTab, setActiveModelTab] = useState<'all' | 'TH-PLR-99' | 'TH-PLR-141'>('all');
@@ -103,8 +104,14 @@ export const THPLRSeriesDetail: FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                  <div className="absolute top-4 left-4 bg-primary/90 backdrop-blur-xs px-3 py-1.5 rounded-xs border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider">
-                    PID Control + HMI + Recorder
+                  {/* Brand Logo (Left Side) */}
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs p-1 px-2.5 rounded-xs border border-white/40 shadow-sm flex items-center">
+                    <img src={thetaLogo} alt="THETA Controls" className="h-4.5 object-contain rounded-2xs" />
+                  </div>
+
+                  {/* Feature Badge (Right Side) */}
+                  <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-xs px-3 py-1.5 rounded-xs border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider shadow-xs">
+                    PID Control + HMI
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 text-white">
