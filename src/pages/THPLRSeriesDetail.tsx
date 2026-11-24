@@ -83,6 +83,15 @@ export const THPLRSeriesDetail: FC = () => {
                   <span className="material-symbols-outlined text-[18px]">mail</span>
                   Enquire Now
                 </Link>
+                <a
+                  href="/documents/recorders/TH-PLR-Paperless_Recorder.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-red-600/10 hover:bg-red-600 text-red-700 hover:text-white border border-red-600/30 font-body text-xs font-bold uppercase tracking-wider rounded-xs shadow-xs hover:shadow-md transition-all flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+                  Download Catalog (PDF)
+                </a>
                 <Link
                   to="/solutions"
                   className="px-5 py-2.5 bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-primary font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors flex items-center gap-2"
@@ -562,6 +571,51 @@ export const THPLRSeriesDetail: FC = () => {
             <span>Explore Software Solutions</span>
             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
           </Link>
+        </div>
+      </section>
+
+      {/* Official Documentation & Downloads Section */}
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin mt-14">
+        <div className="bg-surface-container-low border border-outline-variant/20 rounded-xs p-6 sm:p-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <div className="w-14 h-14 rounded-xs bg-red-600/10 text-red-600 flex items-center justify-center shrink-0 border border-red-600/20">
+                <span className="material-symbols-outlined text-3xl">picture_as_pdf</span>
+              </div>
+              <div>
+                <span className="bg-red-600/10 text-red-700 text-[10px] font-bold uppercase px-2 py-0.5 rounded-xs inline-block mb-1">
+                  Official Hardware & Modules Catalog
+                </span>
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-primary">
+                  TH-PLR Series Modules & Technical Architecture Catalog (PDF)
+                </h3>
+                <p className="font-body text-xs text-on-surface-variant mt-1 max-w-2xl">
+                  Download the complete official 22-page engineering catalog covering TH-PLR-99 and TH-PLR-141 hardware, power supplies (PS32, PS42), communication cards (ACM, ETU), full I/O module specifications, and ordering code matrix.
+                </p>
+                <div className="flex items-center gap-4 text-[11px] font-body text-outline mt-2">
+                  <span>Format: PDF</span>
+                  <span>•</span>
+                  <span>Size: 2.4 MB</span>
+                  <span>•</span>
+                  <span>Pages: 22</span>
+                  <span>•</span>
+                  <span>Comprehensive Modular Guide</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 shrink-0">
+              <a
+                href="/documents/recorders/TH-PLR-Paperless_Recorder.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-body text-xs font-bold uppercase tracking-wider rounded-xs shadow-md transition-colors flex items-center gap-2"
+              >
+                <span className="material-symbols-outlined text-[18px]">open_in_new</span>
+                <span>Open / Download PDF</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

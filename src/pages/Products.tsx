@@ -285,13 +285,28 @@ export const Products: FC = () => {
                     </div>
 
                     {/* Bottom Link Bar */}
-                    <div className="pt-4 mt-5 border-t border-outline-variant/15 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
-                        <span>Explore BrainChild PR Series</span>
-                        <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
-                      </span>
+                    <div className="pt-4 mt-5 border-t border-outline-variant/15 flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
+                          <span>Explore PR Series</span>
+                          <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
+                        </span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.open('/documents/recorders/BrainChild_PR_Series_Brochure.pdf', '_blank');
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs bg-surface-container hover:bg-red-700 text-primary hover:text-white border border-outline-variant/30 font-body text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-xs cursor-pointer z-10"
+                          title="Open official BrainChild PR Series PDF brochure"
+                        >
+                          <span className="material-symbols-outlined text-[16px] text-red-500 group-hover:text-white transition-colors">picture_as_pdf</span>
+                          <span>PDF Brochure</span>
+                        </button>
+                      </div>
                       <span className="font-body text-[11px] text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
-                        <span>View Models, Specs & Software</span>
+                        <span>PR10 • PR20 • PR30</span>
                         <span className="material-symbols-outlined text-[14px]">chevron_right</span>
                       </span>
                     </div>
@@ -384,13 +399,28 @@ export const Products: FC = () => {
                     </div>
 
                     {/* Bottom Link Bar */}
-                    <div className="pt-4 mt-5 border-t border-outline-variant/15 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
-                        <span>Explore TH-PLR Series</span>
-                        <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
-                      </span>
+                    <div className="pt-4 mt-5 border-t border-outline-variant/15 flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
+                          <span>Explore TH-PLR Series</span>
+                          <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
+                        </span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.open('/documents/recorders/TH-PLR-Paperless_Recorder.pdf', '_blank');
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs bg-surface-container hover:bg-red-700 text-primary hover:text-white border border-outline-variant/30 font-body text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-xs cursor-pointer z-10"
+                          title="Open official TH-PLR Series PDF catalog"
+                        >
+                          <span className="material-symbols-outlined text-[16px] text-red-500 group-hover:text-white transition-colors">picture_as_pdf</span>
+                          <span>PDF Catalog</span>
+                        </button>
+                      </div>
                       <span className="font-body text-[11px] text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
-                        <span>View Models, Specs & Software</span>
+                        <span>TH-PLR-99 • TH-PLR-141</span>
                         <span className="material-symbols-outlined text-[14px]">chevron_right</span>
                       </span>
                     </div>
@@ -483,13 +513,28 @@ export const Products: FC = () => {
                     </div>
 
                     {/* Bottom Link Bar */}
-                    <div className="pt-4 mt-5 border-t border-outline-variant/15 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
-                        <span>Explore Aerospace PR 2.0</span>
-                        <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
-                      </span>
+                    <div className="pt-4 mt-5 border-t border-outline-variant/15 flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
+                          <span>Explore Aerospace PR 2.0</span>
+                          <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
+                        </span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.open('/documents/recorders/BrainChild_PR20_Aerospace_Catalog.pdf', '_blank');
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs bg-surface-container hover:bg-red-700 text-primary hover:text-white border border-outline-variant/30 font-body text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-xs cursor-pointer z-10"
+                          title="Open official BrainChild PR 2.0 Aerospace & EMS PDF catalog"
+                        >
+                          <span className="material-symbols-outlined text-[16px] text-red-500 group-hover:text-white transition-colors">picture_as_pdf</span>
+                          <span>PDF Catalog</span>
+                        </button>
+                      </div>
                       <span className="font-body text-[11px] text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
-                        <span>View AMS2750H Standards & Modules</span>
+                        <span>AI306 Module • AMS2750H</span>
                         <span className="material-symbols-outlined text-[14px]">chevron_right</span>
                       </span>
                     </div>
