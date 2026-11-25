@@ -84,7 +84,7 @@ export const Products: FC = () => {
     <div className="w-full pb-20">
       {/* Top Hero Banner */}
       <section className="bg-surface border-b border-outline-variant/15 py-10 sm:py-14">
-        <div className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin">
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl">
@@ -143,7 +143,7 @@ export const Products: FC = () => {
       </section>
 
       {/* Main Content Area */}
-      <section className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 pt-10">
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin pt-10">
         {/* VIEW 1: SPECIFIC PRODUCT SELECTED -> SUB-CATEGORIES OPENED IN FULL CARD FORMAT */}
         {selectedProduct ? (
           <div>
@@ -208,7 +208,7 @@ export const Products: FC = () => {
                   <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 hidden lg:block" />
 
                   {/* Left Side: Relevant Image */}
-                  <div className="lg:w-[35%] xl:w-[33%] relative min-h-[260px] sm:min-h-[300px] overflow-hidden bg-surface-container-low shrink-0">
+                  <div className="lg:w-2/5 xl:w-[38%] relative min-h-[260px] sm:min-h-[300px] overflow-hidden bg-surface-container-low shrink-0">
                     <img
                       src={prSeriesImg}
                       alt="BrainChild PR Series"
@@ -237,7 +237,7 @@ export const Products: FC = () => {
                   </div>
 
                   {/* Right Side: Content & Specifications */}
-                  <div className="lg:w-[65%] xl:w-[67%] p-6 sm:p-8 flex flex-col justify-between">
+                  <div className="lg:w-3/5 xl:w-[62%] p-6 sm:p-8 flex flex-col justify-between">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <span className="bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase px-2.5 py-0.5 rounded-full">
@@ -307,7 +307,7 @@ export const Products: FC = () => {
                   <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 hidden lg:block" />
 
                   {/* Left Side: Relevant Image */}
-                  <div className="lg:w-[35%] xl:w-[33%] relative min-h-[260px] sm:min-h-[300px] overflow-hidden bg-surface-container-low shrink-0">
+                  <div className="lg:w-2/5 xl:w-[38%] relative min-h-[260px] sm:min-h-[300px] overflow-hidden bg-surface-container-low shrink-0">
                     <img
                       src={thplrImg}
                       alt="TH-PLR Series"
@@ -336,7 +336,7 @@ export const Products: FC = () => {
                   </div>
 
                   {/* Right Side: Content & Specifications */}
-                  <div className="lg:w-[65%] xl:w-[67%] p-6 sm:p-8 flex flex-col justify-between">
+                  <div className="lg:w-3/5 xl:w-[62%] p-6 sm:p-8 flex flex-col justify-between">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <span className="bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase px-2.5 py-0.5 rounded-full">
@@ -406,7 +406,7 @@ export const Products: FC = () => {
                   <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 hidden lg:block" />
 
                   {/* Left Side: Relevant Image */}
-                  <div className="lg:w-[35%] xl:w-[33%] relative min-h-[260px] sm:min-h-[300px] overflow-hidden bg-surface-container-low shrink-0">
+                  <div className="lg:w-2/5 xl:w-[38%] relative min-h-[260px] sm:min-h-[300px] overflow-hidden bg-surface-container-low shrink-0">
                     <img
                       src={aeroImg}
                       alt="Recorder for Aerospace Industry"
@@ -435,7 +435,7 @@ export const Products: FC = () => {
                   </div>
 
                   {/* Right Side: Content & Specifications */}
-                  <div className="lg:w-[65%] xl:w-[67%] p-6 sm:p-8 flex flex-col justify-between">
+                  <div className="lg:w-3/5 xl:w-[62%] p-6 sm:p-8 flex flex-col justify-between">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <span className="bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase px-2.5 py-0.5 rounded-full">
@@ -1241,7 +1241,7 @@ export const Products: FC = () => {
       )}
 
       {/* Bottom Cross-Link Banner */}
-      <section className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 mt-16">
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin mt-16">
         <div className="bg-gradient-to-r from-primary to-[#002d5a] rounded-xs p-6 sm:p-10 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
           <div className="max-w-2xl">
             <span className="text-secondary font-body text-xs font-bold uppercase tracking-widest block mb-2">
