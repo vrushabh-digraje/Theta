@@ -51,11 +51,11 @@ export const THPLRSeriesDetail: FC = () => {
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight mb-3">
                 TH-PLR Series – Modular Paperless Recorders
               </h1>
-              <p className="font-display text-base sm:text-lg text-secondary font-medium mb-6">
+              <p className="font-display text-lg sm:text-xl text-secondary font-medium mb-6">
                 Modular Paperless Recorders for Industrial Process Monitoring and Control
               </p>
 
-              <div className="space-y-3 font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-8">
+              <div className="space-y-3 font-body text-sm sm:text-base text-on-surface-variant leading-relaxed mb-8">
                 <p>
                   The TH-PLR Series combines data recording, process monitoring and control functions in a compact, modular device. Designed for industrial applications, it provides a flexible way to monitor different process signals, record measurement data and manage input and output operations.
                 </p>

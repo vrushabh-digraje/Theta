@@ -51,11 +51,11 @@ export const PRSeriesDetail: FC = () => {
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight mb-3">
                 PR Series – Paperless Recorders
               </h1>
-              <p className="font-display text-base sm:text-lg text-secondary font-medium mb-6">
+              <p className="font-display text-lg sm:text-xl text-secondary font-medium mb-6">
                 Paperless Recorders for Industrial Process Monitoring and Data Logging
               </p>
 
-              <div className="space-y-3 font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-8">
+              <div className="space-y-3 font-body text-sm sm:text-base text-on-surface-variant leading-relaxed mb-8">
                 <p>
                   The BrainChild PR Series is designed for industrial process monitoring and data recording. It includes three models – PR10, PR20 and PR30 – with different display sizes and input capacities to meet varying application requirements.
                 </p>
