@@ -448,7 +448,7 @@ export const PRSeriesDetail: FC = () => {
       {/* Software and Data Management Section */}
       <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin mt-16">
         <div className="flex items-center gap-2 mb-2">
-          <span className="material-symbols-outlined text-secondary text-[20px]">software</span>
+          <span className="material-symbols-outlined text-secondary text-[20px]">terminal</span>
           <span className="font-body text-[11px] font-bold text-secondary uppercase tracking-widest">
             PC Software Suite
           </span>

@@ -458,7 +458,7 @@ export const THPLRSeriesDetail: FC = () => {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">protocol</span>
+                <span className="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">hub</span>
                 <div>
                   <strong className="text-primary font-bold">Protocols:</strong> Modbus RTU, Modbus TCP, HTTP, Web Server and NTP.
                 </div>
