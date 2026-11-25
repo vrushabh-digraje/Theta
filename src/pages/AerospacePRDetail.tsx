@@ -52,11 +52,11 @@ export const AerospacePRDetail: FC = () => {
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight mb-3">
                 PR 2.0 – Aerospace Heat Treatment Paperless Recorder
               </h1>
-              <p className="font-display text-lg sm:text-xl text-secondary font-medium mb-6">
+              <p className="font-display text-base sm:text-lg text-secondary font-medium mb-6">
                 High-Precision Temperature Monitoring for Aerospace Heat Treatment
               </p>
 
-              <div className="space-y-3 font-body text-sm sm:text-base text-on-surface-variant leading-relaxed mb-8">
+              <div className="space-y-3 font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-8">
                 <p>
                   BrainChild PR 2.0 introduces advanced measurement and recording capabilities for industrial applications that require high accuracy and reliable process documentation. With support for the AI306_6 high-precision analog input module, PR 2.0 is designed to meet the demanding temperature measurement requirements of aerospace heat-treatment applications.
                 </p>

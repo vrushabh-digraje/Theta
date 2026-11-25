@@ -97,7 +97,7 @@ export const Products: FC = () => {
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight mb-3">
                 {selectedProduct ? selectedProduct.name : 'Industrial Products & Systems'}
               </h1>
-              <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed">
+              <p className="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">
                 {selectedProduct
                   ? selectedProduct.description
                   : 'Explore THETA Controls’ high-reliability industrial hardware lines. Select any product below to open its complete sub-categories in full card format.'}
@@ -193,8 +193,8 @@ export const Products: FC = () => {
             {selectedProduct.id === 'paperless-recorders' ? (
               <div className="space-y-8">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-body text-xs sm:text-sm font-bold uppercase tracking-wider text-outline flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-[18px] text-secondary">view_agenda</span>
+                  <h3 className="font-body text-xs font-bold uppercase tracking-wider text-outline flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[16px] text-secondary">view_agenda</span>
                     <span>Paperless Recorders Lineup (3 Series Available)</span>
                   </h3>
                 </div>
@@ -218,19 +218,19 @@ export const Products: FC = () => {
                     
                     {/* Brand Logo (Left Side) */}
                     <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-2.5 py-1.5 rounded-xs border border-white/40 shadow-sm flex items-center group-hover:shadow-md transition-shadow">
-                      <img src={brainchildLogo} alt="BrainChild" className="h-4.5 object-contain" />
+                      <img src={brainchildLogo} alt="BrainChild" className="h-4 object-contain" />
                     </div>
 
                     {/* Feature Badge (Right Side) */}
-                    <div className="absolute top-4 right-4 bg-primary/90 text-white text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
+                    <div className="absolute top-4 right-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
                       Industrial Recorders
                     </div>
 
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <span className="bg-secondary text-white text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-xs mb-1.5 inline-block shadow-xs">
+                      <span className="bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs mb-1.5 inline-block shadow-xs">
                         Available Models: PR10 | PR20 | PR30
                       </span>
-                      <p className="text-xs sm:text-sm text-white/95 font-body drop-shadow-sm">
+                      <p className="text-xs text-white/90 font-body drop-shadow-sm">
                         Colour TFT Touchscreen • 100 ms Logging • Universal Inputs
                       </p>
                     </div>
@@ -240,28 +240,28 @@ export const Products: FC = () => {
                   <div className="lg:w-3/5 xl:w-[62%] p-6 sm:p-8 flex flex-col justify-between">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className="bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase px-2.5 py-0.5 rounded-full">
+                        <span className="bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full">
                           Industrial Process Monitoring
                         </span>
-                        <span className="bg-surface-container border border-outline-variant/20 text-primary group-hover:border-secondary/40 text-xs font-semibold uppercase px-2 py-0.5 rounded-xs transition-colors">
+                        <span className="bg-surface-container border border-outline-variant/20 text-primary group-hover:border-secondary/40 text-[10px] font-semibold uppercase px-2 py-0.5 rounded-xs transition-colors">
                           PR10 • PR20 • PR30
                         </span>
                       </div>
 
-                      <h3 className="font-display text-2xl sm:text-3xl font-bold text-primary group-hover:text-secondary transition-colors mb-1">
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-1">
                         BrainChild PR Series
                       </h3>
-                      <p className="font-body text-sm sm:text-base font-semibold text-secondary mb-3">
+                      <p className="font-body text-xs sm:text-sm font-semibold text-secondary mb-3">
                         Paperless Recorders for Industrial Process Monitoring and Data Logging
                       </p>
 
-                      <p className="font-body text-sm sm:text-[15px] text-on-surface-variant leading-relaxed mb-5">
+                      <p className="font-body text-xs text-on-surface-variant leading-relaxed mb-5">
                         Accurate process data is essential for maintaining product quality, improving operational efficiency and meeting industry requirements. BrainChild's PR Series paperless recorders provide a practical way to monitor, record and review process data without the need for traditional chart recorders. The series includes three models – PR10, PR20 and PR30 – designed for different monitoring requirements, from compact applications with a smaller number of input channels to larger industrial systems requiring extensive data acquisition. With touchscreen operation, flexible input configurations, real-time monitoring and historical data analysis, the PR Series helps operators keep track of process conditions and maintain reliable production records.
                       </p>
 
                       {/* Highlights */}
                       <div className="mb-2">
-                        <span className="font-body text-xs sm:text-sm font-bold uppercase tracking-wider text-primary block mb-2">
+                        <span className="font-body text-[11px] font-bold uppercase tracking-wider text-primary block mb-2">
                           Key Highlights:
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -275,7 +275,7 @@ export const Products: FC = () => {
                             'Ethernet and USB connectivity',
                             'Alarm monitoring and data management functions',
                           ].map((hl, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs sm:text-[13px] font-body text-on-surface-variant group-hover:text-primary transition-colors p-1 rounded-xs hover:!bg-secondary/10">
+                            <div key={i} className="flex items-center gap-2 text-[11px] font-body text-on-surface-variant group-hover:text-primary transition-colors p-1 rounded-xs hover:!bg-secondary/10">
                               <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 group-hover:scale-125 transition-transform" />
                               <span className="line-clamp-1">{hl}</span>
                             </div>
@@ -286,11 +286,11 @@ export const Products: FC = () => {
 
                     {/* Bottom Link Bar */}
                     <div className="pt-4 mt-5 border-t border-outline-variant/15 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
+                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
                         <span>Explore PR Series</span>
-                        <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
+                        <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
                       </span>
-                      <span className="font-body text-xs text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
+                      <span className="font-body text-[11px] text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
                         <span>PR10 • PR20 • PR30</span>
                         <span className="material-symbols-outlined text-[14px]">chevron_right</span>
                       </span>
@@ -321,15 +321,15 @@ export const Products: FC = () => {
                     </div>
 
                     {/* Feature Badge (Right Side) */}
-                    <div className="absolute top-4 right-4 bg-primary/90 text-white text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
+                    <div className="absolute top-4 right-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
                       PID Control + HMI
                     </div>
 
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <span className="bg-secondary text-white text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-xs mb-1.5 inline-block shadow-xs">
+                      <span className="bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs mb-1.5 inline-block shadow-xs">
                         Models: TH-PLR-99 | TH-PLR-141
                       </span>
-                      <p className="text-xs sm:text-sm text-white/95 font-body drop-shadow-sm">
+                      <p className="text-xs text-white/90 font-body drop-shadow-sm">
                         Up to 72 Analogue & 73 Digital Inputs • 4 GB Memory • HTML5
                       </p>
                     </div>
@@ -339,28 +339,28 @@ export const Products: FC = () => {
                   <div className="lg:w-3/5 xl:w-[62%] p-6 sm:p-8 flex flex-col justify-between">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className="bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase px-2.5 py-0.5 rounded-full">
+                        <span className="bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full">
                           Modular Process Automation
                         </span>
-                        <span className="bg-surface-container border border-outline-variant/20 text-primary group-hover:border-secondary/40 text-xs font-semibold uppercase px-2 py-0.5 rounded-xs transition-colors">
+                        <span className="bg-surface-container border border-outline-variant/20 text-primary group-hover:border-secondary/40 text-[10px] font-semibold uppercase px-2 py-0.5 rounded-xs transition-colors">
                           TH-PLR-99 • TH-PLR-141
                         </span>
                       </div>
 
-                      <h3 className="font-display text-2xl sm:text-3xl font-bold text-primary group-hover:text-secondary transition-colors mb-1">
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-1">
                         TH-PLR Series
                       </h3>
-                      <p className="font-body text-sm sm:text-base font-semibold text-secondary mb-3">
+                      <p className="font-body text-xs sm:text-sm font-semibold text-secondary mb-3">
                         Modular Paperless Recorders for Industrial Process Monitoring and Control
                       </p>
 
-                      <p className="font-body text-sm sm:text-[15px] text-on-surface-variant leading-relaxed mb-5">
+                      <p className="font-body text-xs text-on-surface-variant leading-relaxed mb-5">
                         The TH-PLR Series combines paperless recording, process monitoring, PID control and HMI visualisation in one compact, modular device. Designed for industrial automation, it supports multiple measurement signals, configurable I/O, mathematical functions and flexible communication options. Available in two models – TH-PLR-99 and TH-PLR-141 – the series offers expandable input and output configurations, built-in control functions and advanced visualisation capabilities. The TH-PLR-99 provides a compact solution for moderate I/O requirements, while the TH-PLR-141 offers higher measurement capacity and a larger display.
                       </p>
 
                       {/* Highlights */}
                       <div className="mb-2">
-                        <span className="font-body text-xs sm:text-sm font-bold uppercase tracking-wider text-primary block mb-2">
+                        <span className="font-body text-[11px] font-bold uppercase tracking-wider text-primary block mb-2">
                           Key Highlights:
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -374,7 +374,7 @@ export const Products: FC = () => {
                             'Customisable visualisation: graphs, gauges & HTML5 pages',
                             'Keyboard and mouse operation supported',
                           ].map((hl, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs sm:text-[13px] font-body text-on-surface-variant group-hover:text-primary transition-colors p-1 rounded-xs hover:!bg-secondary/10">
+                            <div key={i} className="flex items-center gap-2 text-[11px] font-body text-on-surface-variant group-hover:text-primary transition-colors p-1 rounded-xs hover:!bg-secondary/10">
                               <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 group-hover:scale-125 transition-transform" />
                               <span className="line-clamp-1">{hl}</span>
                             </div>
@@ -385,11 +385,11 @@ export const Products: FC = () => {
 
                     {/* Bottom Link Bar */}
                     <div className="pt-4 mt-5 border-t border-outline-variant/15 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
+                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
                         <span>Explore TH-PLR Series</span>
-                        <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
+                        <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
                       </span>
-                      <span className="font-body text-xs text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
+                      <span className="font-body text-[11px] text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
                         <span>TH-PLR-99 • TH-PLR-141</span>
                         <span className="material-symbols-outlined text-[14px]">chevron_right</span>
                       </span>
@@ -420,15 +420,15 @@ export const Products: FC = () => {
                     </div>
 
                     {/* Feature Badge (Right Side) */}
-                    <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
+                    <div className="absolute top-4 right-4 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-xs backdrop-blur-xs shadow-xs">
                       AMS2750H Standard
                     </div>
 
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <span className="bg-secondary text-white text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-xs mb-1.5 inline-block shadow-xs">
+                      <span className="bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs mb-1.5 inline-block shadow-xs">
                         AI306_6 Module • PR10 / PR20
                       </span>
-                      <p className="text-xs sm:text-sm text-white/95 font-body drop-shadow-sm">
+                      <p className="text-xs text-white/90 font-body drop-shadow-sm">
                         ±0.6°C Thermocouple Accuracy • TUS Surveys • Traceability
                       </p>
                     </div>
@@ -438,28 +438,28 @@ export const Products: FC = () => {
                   <div className="lg:w-3/5 xl:w-[62%] p-6 sm:p-8 flex flex-col justify-between">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className="bg-secondary/10 border border-secondary/20 text-secondary text-xs font-bold uppercase px-2.5 py-0.5 rounded-full">
+                        <span className="bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full">
                           Aerospace Heat Treatment
                         </span>
-                        <span className="bg-surface-container border border-outline-variant/20 text-primary group-hover:border-secondary/40 text-xs font-semibold uppercase px-2 py-0.5 rounded-xs transition-colors">
+                        <span className="bg-surface-container border border-outline-variant/20 text-primary group-hover:border-secondary/40 text-[10px] font-semibold uppercase px-2 py-0.5 rounded-xs transition-colors">
                           BrainChild PR 2.0
                         </span>
                       </div>
 
-                      <h3 className="font-display text-2xl sm:text-3xl font-bold text-primary group-hover:text-secondary transition-colors mb-1">
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-1">
                         Recorder for Aerospace Industry
                       </h3>
-                      <p className="font-body text-sm sm:text-base font-semibold text-secondary mb-3">
+                      <p className="font-body text-xs sm:text-sm font-semibold text-secondary mb-3">
                         High-Precision Temperature Monitoring for Aerospace Heat Treatment
                       </p>
 
-                      <p className="font-body text-sm sm:text-[15px] text-on-surface-variant leading-relaxed mb-5">
+                      <p className="font-body text-xs text-on-surface-variant leading-relaxed mb-5">
                         Equipped with the AI306_6 high-precision analog input module, the BrainChild PR 2.0 is designed for demanding temperature-monitoring applications in aerospace heat treatment. With improved measurement accuracy and advanced data-recording capabilities, it supports applications that require precise and reliable temperature monitoring.
                       </p>
 
                       {/* Highlights */}
                       <div className="mb-2">
-                        <span className="font-body text-xs sm:text-sm font-bold uppercase tracking-wider text-primary block mb-2">
+                        <span className="font-body text-[11px] font-bold uppercase tracking-wider text-primary block mb-2">
                           Key Highlights:
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -473,7 +473,7 @@ export const Products: FC = () => {
                             'FDA 21 CFR Part 11 compliant electronic records',
                             'Available on PR10 & PR20 platform models',
                           ].map((hl, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs sm:text-[13px] font-body text-on-surface-variant group-hover:text-primary transition-colors p-1 rounded-xs hover:!bg-secondary/10">
+                            <div key={i} className="flex items-center gap-2 text-[11px] font-body text-on-surface-variant group-hover:text-primary transition-colors p-1 rounded-xs hover:!bg-secondary/10">
                               <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 group-hover:scale-125 transition-transform" />
                               <span className="line-clamp-1">{hl}</span>
                             </div>
@@ -484,11 +484,11 @@ export const Products: FC = () => {
 
                     {/* Bottom Link Bar */}
                     <div className="pt-4 mt-5 border-t border-outline-variant/15 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
+                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs">
                         <span>Explore Aerospace PR 2.0</span>
-                        <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
+                        <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
                       </span>
-                      <span className="font-body text-xs text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
+                      <span className="font-body text-[11px] text-outline group-hover:text-primary transition-colors hidden sm:flex items-center gap-1">
                         <span>AI306 Module • AMS2750H</span>
                         <span className="material-symbols-outlined text-[14px]">chevron_right</span>
                       </span>
