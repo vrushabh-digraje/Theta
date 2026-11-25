@@ -246,7 +246,14 @@ export const Contact: FC = () => {
                   <option>Theta IoT Technologies (Edge Gateways & Gas Detection)</option>
                   <option>Theta Test & Automation (NI Alliance & Automated DAQ)</option>
                   <option>Hardware Distribution (Hirschmann / Belden / Dino-Lite)</option>
+                  <option>Other / General Inquiry</option>
                 </select>
+                {formData.division === 'Other / General Inquiry' && (
+                  <p className="mt-1.5 text-[11px] text-secondary font-medium flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px]">info</span>
+                    <span>General inquiries will be routed directly to the designated company management desk.</span>
+                  </p>
+                )}
               </div>
 
               <div>
