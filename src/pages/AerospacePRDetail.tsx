@@ -84,7 +84,7 @@ export const AerospacePRDetail: FC = () => {
                   className="px-5 py-2.5 bg-secondary/10 hover:bg-secondary text-secondary hover:text-white border border-secondary/30 font-body text-xs font-bold uppercase tracking-wider rounded-xs shadow-xs hover:shadow-md transition-all flex items-center gap-2"
                 >
                   <span className="material-symbols-outlined text-[18px]">description</span>
-                  Technical Datasheet
+                  View Document
                 </a>
                 <Link
                   to="/products/paperless-recorders/pr-series"
