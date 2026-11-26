@@ -1,9 +1,14 @@
 import { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
+import plantPhoto from '../assets/images/hero_PAut1.jpg';
 
 /**
- * Enterprise Contact Us page for THETA Controls & Systems.
- * Prioritizes Phone Number and Email Address as the primary, most prominent contact channels,
- * accompanied by an interactive quick inquiry form and facility details.
+ * Enterprise Contact Us & Engineering Support page for THETA Controls & Systems.
+ * Implements the approved desktop layout with:
+ * - 3 Priority Channel Cards on top (Direct Phone, Direct Email, Pune Plant)
+ * - 2-Column Split:
+ *    - Left: Technical Inquiry / RFQ Form (No file upload, clean direct submission)
+ *    - Right: Interactive Pune Map, Facility Hours Card, and Group Companies Details Panel.
  */
 export const Contact: FC = () => {
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
@@ -12,7 +17,7 @@ export const Contact: FC = () => {
     email: '',
     phone: '',
     company: '',
-    division: 'General Technical Inquiry',
+    division: 'Theta Controls & Systems (Process Automation & Panels)',
     message: '',
   });
 
@@ -21,105 +26,140 @@ export const Contact: FC = () => {
     setFormSubmitted(true);
   };
 
+  const groupCompanies = [
+    {
+      id: 'theta-controls',
+      name: 'Theta Controls & Systems',
+      tagline: 'Industrial Automation & Process Controls',
+      badge: 'Est. 1981',
+      icon: 'settings_suggest',
+      link: '/industrial-automation',
+    },
+    {
+      id: 'theta-defence',
+      name: 'Theta Defence & Aerospace',
+      tagline: 'Tactical Electronics & DRDO Partner',
+      badge: 'Defence',
+      icon: 'shield',
+      link: '/defence-systems',
+    },
+    {
+      id: 'theta-iot',
+      name: 'Theta IoT Technologies',
+      tagline: 'Smart Edge Gateways & Wireless Telemetry',
+      badge: 'IoT',
+      icon: 'sensors',
+      link: '/iot-components',
+    },
+    {
+      id: 'theta-test',
+      name: 'Theta Test & Automation',
+      tagline: 'NI Silver Alliance Partner & Automated DAQ Testers',
+      badge: 'Test & DAQ',
+      icon: 'precision_manufacturing',
+      link: '/system-integration',
+    },
+  ];
+
   return (
     <div className="w-full pb-20">
-      {/* Page Header */}
-      <section className="bg-surface border-b border-outline-variant/15 py-12 sm:py-16">
+      {/* 1. TOP HERO BANNER */}
+      <section className="bg-gradient-to-r from-primary to-[#002d5a] text-white py-12 sm:py-16 border-b border-outline-variant/15">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 px-3 py-1 rounded-full mb-3">
+          <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 px-3.5 py-1 rounded-full mb-3 backdrop-blur-xs">
             <span className="material-symbols-outlined text-secondary text-[16px]">support_agent</span>
             <span className="font-body text-[11px] font-bold text-secondary uppercase tracking-widest">
-              Direct Engineering Support
+              Direct Engineering Support & RFQs
             </span>
           </div>
-          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight mb-3">
-            Contact Us
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3">
+            Contact Us & Engineering Support
           </h1>
-          <p className="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-            Reach out directly to THETA Controls’ systems engineering and sales team in Pune. 
-            For immediate technical support or RFQs, call our direct line or email us below.
+          <p className="font-body text-xs sm:text-sm text-white/80 leading-relaxed">
+            Connect directly with THETA Controls’ application engineers and sales desk in Pune. 
+            For immediate technical support, product quotes, or tenders, reach us via our direct channels below.
           </p>
         </div>
       </section>
 
-      {/* Main Content Area */}
-      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin pt-12">
+      {/* 2. MAIN CONTENT AREA */}
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin pt-10 sm:pt-12">
         
-        {/* PRIORITY SECTION: Prominent Phone & Email Cards (Most Important) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+        {/* TOP 3 PRIORITY CHANNEL CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           
-          {/* 1. DIRECT PHONE NUMBER CARD (High Priority) */}
+          {/* Card 1: Direct Phone Hotline */}
           <a
             href="tel:+912066268600"
-            className="p-6 sm:p-7 bg-surface-container-lowest border-2 border-secondary/40 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden"
+            className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 bg-secondary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xs">
-              Direct Line
+            <div className="absolute top-0 right-0 bg-secondary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xs shadow-2xs">
+              Fast Sales Desk
             </div>
 
             <div>
-              <div className="w-12 h-12 rounded-xs bg-secondary/15 group-hover:bg-secondary text-secondary group-hover:text-white flex items-center justify-center transition-colors mb-4">
+              <div className="w-12 h-12 rounded-xs bg-secondary/10 group-hover:bg-secondary text-secondary group-hover:text-white flex items-center justify-center transition-colors mb-4 shadow-xs">
                 <span className="material-symbols-outlined text-[26px]">call</span>
               </div>
               <span className="font-body text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">
-                Direct Telephone (Pune HQ)
+                Direct Phone Hotline
               </span>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-2">
                 +91-20 66 268 600
               </h3>
               <p className="font-body text-xs text-on-surface-variant leading-relaxed">
-                Direct connection to technical sales, quotation desk, and project support engineers.
+                Direct connection to technical sales engineers, quotation desk, and project support.
               </p>
             </div>
 
             <div className="mt-5 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-xs font-bold text-secondary uppercase tracking-wider">
-              <span>Click to Call Now</span>
+              <span>Call Sales Desk</span>
               <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
                 arrow_forward
               </span>
             </div>
           </a>
 
-          {/* 2. DIRECT EMAIL ADDRESS CARD (High Priority) */}
+          {/* Card 2: Direct Email */}
           <a
             href="mailto:info@thetacontrols.com"
-            className="p-6 sm:p-7 bg-surface-container-lowest border-2 border-secondary/40 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden"
+            className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xs">
+            <div className="absolute top-0 right-0 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xs shadow-2xs">
               Fast Response
             </div>
 
             <div>
-              <div className="w-12 h-12 rounded-xs bg-primary/10 group-hover:bg-primary text-primary group-hover:text-white flex items-center justify-center transition-colors mb-4">
+              <div className="w-12 h-12 rounded-xs bg-primary/10 group-hover:bg-primary text-primary group-hover:text-white flex items-center justify-center transition-colors mb-4 shadow-xs">
                 <span className="material-symbols-outlined text-[26px]">mail</span>
               </div>
               <span className="font-body text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">
-                Official Correspondence Email
+                Direct Email Address
               </span>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-2 truncate">
                 info@thetacontrols.com
               </h3>
               <p className="font-body text-xs text-on-surface-variant leading-relaxed">
-                Send technical datasheets, procurement requirements, RFQs, or alliance proposals.
+                Submit project tenders, instrumentation datasheets, RFQs, or alliance proposals.
               </p>
             </div>
 
             <div className="mt-5 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-xs font-bold text-secondary uppercase tracking-wider">
-              <span>Send Email Now</span>
+              <span>Send Email</span>
               <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
                 arrow_forward
               </span>
             </div>
           </a>
 
-          {/* 3. PUNE HEADQUARTERS & FACILITY CARD */}
+          {/* Card 3: Pune Plant & Facility */}
           <div className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 rounded-xs shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xs bg-surface-container text-primary flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-[26px]">domain</span>
+              <div className="w-12 h-12 rounded-xs bg-surface-container text-primary flex items-center justify-center mb-4 shadow-xs">
+                <span className="material-symbols-outlined text-[26px]">location_on</span>
               </div>
               <span className="font-body text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">
-                Manufacturing & FAT Facility
+                Pune HQ & Manufacturing Plant
               </span>
               <h3 className="font-display text-lg sm:text-xl font-bold text-primary mb-2">
                 Pune Electronic Estate
@@ -137,47 +177,49 @@ export const Contact: FC = () => {
 
         </div>
 
-        {/* Contact & Inquiry Form */}
-        <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-6 sm:p-10 shadow-xs max-w-4xl mx-auto">
-          <div className="mb-8 pb-4 border-b border-outline-variant/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div>
-              <h2 className="font-display text-xl sm:text-2xl font-bold text-primary">
-                Send Direct Technical Inquiry or RFQ
-              </h2>
-              <p className="font-body text-xs text-on-surface-variant mt-1">
-                Our application engineers will respond to your technical specifications within 24 business hours.
-              </p>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-bold text-secondary uppercase tracking-wider shrink-0">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              <span>Desk Online</span>
-            </div>
-          </div>
-
-          {formSubmitted ? (
-            <div className="text-center py-10">
-              <div className="w-16 h-16 rounded-full bg-secondary/15 text-secondary flex items-center justify-center mx-auto mb-4">
-                <span className="material-symbols-outlined text-[36px]">check_circle</span>
+        {/* 3. SPLIT TWO-COLUMN LAYOUT: FORM (LEFT) & FACILITY / GROUP COMPANIES (RIGHT) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* LEFT COLUMN (Cols 1-7): STREAMLINED TECHNICAL INQUIRY / RFQ FORM */}
+          <div className="lg:col-span-7 bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-6 sm:p-8 shadow-xs">
+            <div className="mb-6 pb-4 border-b border-outline-variant/15 flex items-center justify-between">
+              <div>
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-primary">
+                  Technical Inquiry / RFQ Form
+                </h2>
+                <p className="font-body text-xs text-on-surface-variant mt-0.5">
+                  Our application engineers will respond within 24 business hours.
+                </p>
               </div>
-              <h3 className="font-display text-xl font-bold text-primary mb-2">
-                Inquiry Successfully Received!
-              </h3>
-              <p className="font-body text-xs text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6">
-                Thank you for contacting THETA Controls. An application engineer has been assigned to your message and will contact you via email or phone.
-              </p>
-              <button
-                type="button"
-                onClick={() => setFormSubmitted(false)}
-                className="px-6 py-2.5 bg-secondary hover:bg-primary text-white font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors cursor-pointer"
-              >
-                Send Another Message
-              </button>
+              <div className="flex items-center gap-2 text-xs font-bold text-secondary uppercase tracking-wider shrink-0">
+                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                <span>Desk Online</span>
+              </div>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            {formSubmitted ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 rounded-full bg-secondary/15 text-secondary flex items-center justify-center mx-auto mb-4">
+                  <span className="material-symbols-outlined text-[36px]">check_circle</span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-primary mb-2">
+                  Inquiry Successfully Received!
+                </h3>
+                <p className="font-body text-xs text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6">
+                  Thank you for contacting THETA Controls. An application engineer has been assigned to your message and will contact you via email or phone.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setFormSubmitted(false)}
+                  className="px-6 py-2.5 bg-secondary hover:bg-primary text-white font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors cursor-pointer"
+                >
+                  Send Another Inquiry
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1.5">
+                  <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
                     Your Name *
                   </label>
                   <input
@@ -189,38 +231,39 @@ export const Contact: FC = () => {
                     className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
                   />
                 </div>
-                <div>
-                  <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1.5">
-                    Work Email *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="e.g. ramesh@company.com"
-                    className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
-                  />
-                </div>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1.5">
-                    Phone / Mobile *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="e.g. +91 98765 43210"
-                    className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
+                      Work Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="e.g. ramesh@company.com"
+                      className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="e.g. +91 98765 43210"
+                      className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
+                    />
+                  </div>
                 </div>
+
                 <div>
-                  <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1.5">
-                    Organization / Company
+                  <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
+                    Company Name
                   </label>
                   <input
                     type="text"
@@ -230,61 +273,161 @@ export const Contact: FC = () => {
                     className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
                   />
                 </div>
-              </div>
 
-              <div>
-                <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1.5">
-                  Engineering Division of Interest
-                </label>
-                <select
-                  value={formData.division}
-                  onChange={(e) => setFormData({ ...formData, division: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
-                >
-                  <option>Theta Controls & Systems (Process Automation & Panels)</option>
-                  <option>Theta Defence & Aerospace (Tactical Controllers & ROV)</option>
-                  <option>Theta IoT Technologies (Edge Gateways & Gas Detection)</option>
-                  <option>Theta Test & Automation (NI Alliance & Automated DAQ)</option>
-                  <option>Hardware Distribution (Hirschmann / Belden / Dino-Lite)</option>
-                  <option>Other / General Inquiry</option>
-                </select>
-                {formData.division === 'Other / General Inquiry' && (
-                  <p className="mt-1.5 text-[11px] text-secondary font-medium flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[14px]">info</span>
-                    <span>General inquiries will be routed directly to the designated company management desk.</span>
-                  </p>
-                )}
-              </div>
+                <div>
+                  <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
+                    Engineering Division of Interest
+                  </label>
+                  <select
+                    value={formData.division}
+                    onChange={(e) => setFormData({ ...formData, division: e.target.value })}
+                    className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
+                  >
+                    <option>Theta Controls & Systems (Process Automation & Panels)</option>
+                    <option>Theta Defence & Aerospace (Tactical Controllers & ROV)</option>
+                    <option>Theta IoT Technologies (Edge Gateways & Gas Detection)</option>
+                    <option>Theta Test & Automation (NI Alliance & Automated DAQ)</option>
+                    <option>Hardware Distribution (Hirschmann / Belden / Dino-Lite)</option>
+                    <option>Other / General Inquiry</option>
+                  </select>
+                  {formData.division === 'Other / General Inquiry' && (
+                    <p className="mt-1.5 text-[11px] text-secondary font-medium flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[14px]">info</span>
+                      <span>General inquiries will be routed directly to the designated company management desk.</span>
+                    </p>
+                  )}
+                </div>
 
-              <div>
-                <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1.5">
-                  Technical Requirements & Message *
-                </label>
-                <textarea
-                  rows={4}
-                  required
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Describe your instrumentation specifications, quantities, target project timeframe, or testing parameters..."
-                  className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors resize-none"
+                <div>
+                  <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
+                    Technical Specifications / Message *
+                  </label>
+                  <textarea
+                    rows={5}
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Describe your instrumentation specifications, quantities, target project timeframe, or testing parameters..."
+                    className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors resize-none"
+                  />
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                  <span className="text-[11px] text-outline font-body">
+                    * All submitted project specifications are kept strictly confidential.
+                  </span>
+
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto px-8 py-3 bg-secondary hover:bg-primary text-white font-body text-xs font-bold uppercase tracking-widest rounded-xs transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                  >
+                    <span>Submit Inquiry</span>
+                    <span className="material-symbols-outlined text-[16px]">send</span>
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+
+          {/* RIGHT COLUMN (Cols 8-12): MAP, FACILITY & GROUP COMPANIES PANEL */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* 1. Google Maps Card */}
+            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs overflow-hidden shadow-xs">
+              <div className="h-48 sm:h-56 w-full relative">
+                <iframe
+                  title="THETA Controls Location Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.565882672332!2d73.8567!3d18.4905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c00a651a5555%3A0x6b1c769ff00b1234!2sElectronic%20Estate%2C%20Pune-Satara%20Rd%2C%20Pune%2C%20Maharashtra%20411009!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
-
-              <div className="pt-3 flex items-center justify-between gap-4">
-                <span className="text-[11px] text-outline font-body">
-                  * All submitted information is strictly confidential.
+              <div className="p-3.5 bg-surface-container flex items-center justify-between text-xs font-body">
+                <span className="font-medium text-primary flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-secondary text-[16px]">location_on</span>
+                  <span>Pune Electronic Estate, Pune</span>
                 </span>
-
-                <button
-                  type="submit"
-                  className="px-8 py-3 bg-primary hover:bg-secondary text-white font-body text-xs font-bold uppercase tracking-widest rounded-xs transition-colors flex items-center gap-2 shadow-xs cursor-pointer"
+                <a
+                  href="https://maps.google.com/?q=Electronic+Estate,+Pune-Satara+Rd,+Pune,+Maharashtra+411009"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary hover:underline font-bold text-[11px] flex items-center gap-0.5"
                 >
-                  <span>Submit Inquiry</span>
-                  <span className="material-symbols-outlined text-[16px]">send</span>
-                </button>
+                  <span>Open Directions</span>
+                  <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                </a>
               </div>
-            </form>
-          )}
+            </div>
+
+            {/* 2. Facility Card */}
+            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-4 sm:p-5 shadow-xs flex items-center gap-4">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xs overflow-hidden bg-surface-container shrink-0">
+                <img
+                  src={plantPhoto}
+                  alt="THETA Manufacturing & R&D Plant"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 className="font-display text-sm sm:text-base font-bold text-primary mb-1">
+                  THETA Manufacturing & R&D Facility
+                </h4>
+                <p className="font-body text-xs text-on-surface-variant mb-2">
+                  Electronic Estate, Satara Road, Pune
+                </p>
+                <div className="inline-flex items-center gap-1.5 text-[11px] text-secondary font-medium bg-secondary/10 px-2 py-0.5 rounded-2xs">
+                  <span className="material-symbols-outlined text-[14px]">schedule</span>
+                  <span>Mon–Sat: 9:00 AM – 6:30 PM IST</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. Group Companies Details Panel */}
+            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-5 sm:p-6 shadow-xs">
+              <div className="flex items-center justify-between mb-4 pb-2 border-b border-outline-variant/15">
+                <h3 className="font-display text-base font-bold text-primary flex items-center gap-2">
+                  <span className="material-symbols-outlined text-secondary text-[20px]">corporate_fare</span>
+                  <span>Group Companies Details</span>
+                </h3>
+                <span className="text-[10px] font-bold text-outline uppercase tracking-wider">
+                  4 Divisions
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                {groupCompanies.map((comp) => (
+                  <Link
+                    key={comp.id}
+                    to={comp.link}
+                    className="p-3 bg-surface-container-low hover:bg-surface-container border border-outline-variant/20 hover:border-secondary rounded-xs flex items-start justify-between gap-3 transition-all duration-200 group"
+                  >
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-8 h-8 rounded-xs bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
+                        <span className="material-symbols-outlined text-[18px]">{comp.icon}</span>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <h4 className="font-display text-xs sm:text-sm font-bold text-primary group-hover:text-secondary transition-colors">
+                            {comp.name}
+                          </h4>
+                        </div>
+                        <p className="font-body text-[11px] text-on-surface-variant line-clamp-1">
+                          {comp.tagline}
+                        </p>
+                      </div>
+                    </div>
+
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-2xs bg-surface-container border border-outline-variant/20 text-outline shrink-0">
+                      {comp.badge}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
         </div>
 
       </section>
