@@ -6,7 +6,6 @@ interface CompanyRouting {
   name: string;
   email: string;
   address: string;
-  badge: string;
   icon: string;
   link?: string;
 }
@@ -17,7 +16,6 @@ const THETA_COMPANIES: CompanyRouting[] = [
     name: 'Theta Controls Private Limited',
     email: 'webleads@thetacontrols.com',
     address: 'Unit 1, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India.',
-    badge: 'Unit 1 / Satara Rd',
     icon: 'settings_suggest',
     link: '/industrial-automation',
   },
@@ -26,7 +24,6 @@ const THETA_COMPANIES: CompanyRouting[] = [
     name: 'Theta Networking Solutions Private Limited',
     email: 'webleads@thetanetworking.in',
     address: 'Unit 4, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India.',
-    badge: 'Unit 4 / Networking',
     icon: 'hub',
     link: '/industrial-networking',
   },
@@ -35,7 +32,6 @@ const THETA_COMPANIES: CompanyRouting[] = [
     name: 'Theta Controls and Systems Private Limited',
     email: 'webleads@thetacosys.com',
     address: '4TH Floor, Plot no 37, Devi House, CTS NO 1576, Shivaji Nagar, Pune, Maharashtra, 411005.',
-    badge: 'Shivaji Nagar HQ',
     icon: 'precision_manufacturing',
     link: '/industrial-automation',
   },
@@ -44,7 +40,6 @@ const THETA_COMPANIES: CompanyRouting[] = [
     name: 'Kontrelek Instruments',
     email: 'webleads@kontrelek.com',
     address: 'Unit 44, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India.',
-    badge: 'Unit 44 / Instruments',
     icon: 'speed',
     link: '/products',
   },
@@ -53,7 +48,6 @@ const THETA_COMPANIES: CompanyRouting[] = [
     name: 'Theta Measurement and Control Solutions Private Limited',
     email: 'Sales@tmcs.in',
     address: 'AR Bhat Bhavan, MCCIA Building, Tilak Road, Pune – 411002, Maharashtra, India.',
-    badge: 'MCCIA / Tilak Rd',
     icon: 'analytics',
     link: '/solutions',
   },
@@ -62,7 +56,6 @@ const THETA_COMPANIES: CompanyRouting[] = [
     name: 'I Don’t Know',
     email: 'info@thetacontrols.com',
     address: 'Theta Group Central Desk, Pune, Maharashtra, India.',
-    badge: 'Common Desk',
     icon: 'help_outline',
   },
 ];
@@ -242,20 +235,6 @@ export const Contact: FC = () => {
                 <h3 className="font-display text-xl font-bold text-primary mb-2">
                   Inquiry Successfully Received!
                 </h3>
-                <div className="bg-surface-container-low p-4 rounded-xs border border-outline-variant/20 max-w-md mx-auto mb-6 text-left space-y-1.5">
-                  <div className="text-[11px] text-outline font-bold uppercase tracking-wider">
-                    Routing Details:
-                  </div>
-                  <div className="text-xs text-primary font-bold">
-                    Recipient Company: <span className="text-secondary">{selectedEntity.name}</span>
-                  </div>
-                  <div className="text-xs text-primary">
-                    Destination Mailbox: <span className="font-mono font-semibold text-secondary">{selectedEntity.email}</span>
-                  </div>
-                  <div className="text-[11px] text-on-surface-variant">
-                    Facility: {selectedEntity.address}
-                  </div>
-                </div>
                 <p className="font-body text-xs text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6">
                   Thank you for contacting THETA Group. An application engineer has been notified and will contact you shortly via email or phone.
                 </p>
@@ -345,18 +324,6 @@ export const Contact: FC = () => {
                       </option>
                     ))}
                   </select>
-
-                  {/* Dynamic Company Routing Information Pill */}
-                  <div className="mt-2 p-3 bg-secondary/5 border border-secondary/20 rounded-xs flex flex-col gap-1 text-[11px]">
-                    <div className="flex items-center gap-1.5 text-secondary font-bold">
-                      <span className="material-symbols-outlined text-[16px]">forward_to_inbox</span>
-                      <span>Target Webleads Routing: <strong className="font-mono">{selectedEntity.email}</strong></span>
-                    </div>
-                    <div className="flex items-start gap-1.5 text-on-surface-variant">
-                      <span className="material-symbols-outlined text-[16px] text-outline shrink-0 mt-0.5">location_on</span>
-                      <span>{selectedEntity.address}</span>
-                    </div>
-                  </div>
                 </div>
 
                 {/* 5. Message */}
@@ -472,9 +439,6 @@ export const Contact: FC = () => {
                           {comp.name}
                         </h4>
                       </div>
-                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-2xs bg-surface-container border border-outline-variant/20 text-outline shrink-0">
-                        {comp.badge}
-                      </span>
                     </div>
 
                     <div className="text-[11px] text-on-surface-variant flex items-start gap-1 pl-7">
