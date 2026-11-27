@@ -144,7 +144,8 @@ export const Careers: FC = () => {
     email: '',
     phone: '',
     totalExperience: '',
-    ctc: '',
+    currentCtc: '',
+    expectedCtc: '',
     noticePeriod: '',
     linkedin: '',
     resumeFile: null as File | null,
@@ -738,18 +739,32 @@ export const Careers: FC = () => {
                     </div>
                   </div>
 
-                  {/* 4. Current / Expected CTC (optional) */}
-                  <div>
-                    <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
-                      Current / Expected CTC <span className="text-outline font-normal">(optional)</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Current: ₹7.5 LPA • Expected: ₹10 LPA"
-                      value={applicantData.ctc}
-                      onChange={(e) => setApplicantData({ ...applicantData, ctc: e.target.value })}
-                      className="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
-                    />
+                  {/* 4. Current & Expected CTC (two separate fields) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
+                        Current CTC <span className="text-outline font-normal">(optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. ₹7.5 LPA"
+                        value={applicantData.currentCtc}
+                        onChange={(e) => setApplicantData({ ...applicantData, currentCtc: e.target.value })}
+                        className="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
+                        Expected CTC <span className="text-outline font-normal">(optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. ₹10 LPA"
+                        value={applicantData.expectedCtc}
+                        onChange={(e) => setApplicantData({ ...applicantData, expectedCtc: e.target.value })}
+                        className="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
+                      />
+                    </div>
                   </div>
 
                   {/* 5. LinkedIn Profile */}
