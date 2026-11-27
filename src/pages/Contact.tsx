@@ -353,9 +353,9 @@ export const Contact: FC = () => {
                     onChange={(e) => setFormData({ ...formData, selectedCompany: e.target.value })}
                     className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs font-medium text-primary focus:outline-none focus:border-secondary transition-colors"
                   >
-                    {THETA_COMPANIES.map((company, idx) => (
+                    {THETA_COMPANIES.map((company) => (
                       <option key={company.id} value={company.name}>
-                        {idx + 1}. {company.name}
+                        {company.name}
                       </option>
                     ))}
                   </select>
@@ -447,28 +447,23 @@ export const Contact: FC = () => {
               </div>
 
               <div className="space-y-3">
-                {THETA_COMPANIES.slice(0, 5).map((comp, idx) => (
+                {THETA_COMPANIES.slice(0, 5).map((comp) => (
                   <div
                     key={comp.id}
                     className="p-3 bg-surface-container-low border border-outline-variant/20 hover:border-secondary rounded-xs flex flex-col gap-1.5 transition-all duration-200"
                   >
                     <div className="flex items-start justify-between gap-2">
-                      <div className="flex items-center gap-2">
-                        <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary font-mono text-[10px] font-bold flex items-center justify-center shrink-0">
-                          {idx + 1}
-                        </span>
-                        <h4 className="font-display text-xs sm:text-sm font-bold text-primary">
-                          {comp.name}
-                        </h4>
-                      </div>
+                      <h4 className="font-display text-xs sm:text-sm font-bold text-primary">
+                        {comp.name}
+                      </h4>
                     </div>
 
-                    <div className="text-[11px] text-on-surface-variant flex items-start gap-1 pl-7">
+                    <div className="text-[11px] text-on-surface-variant flex items-start gap-1">
                       <span className="material-symbols-outlined text-[14px] text-outline shrink-0 mt-0.5">location_on</span>
                       <span className="line-clamp-2 leading-relaxed">{comp.address}</span>
                     </div>
 
-                    <div className="text-[11px] font-mono text-secondary font-semibold pl-7 flex items-center gap-1">
+                    <div className="text-[11px] font-mono text-secondary font-semibold flex items-center gap-1">
                       <span className="material-symbols-outlined text-[14px]">mail</span>
                       <a href={`mailto:${comp.email}`} className="hover:underline">
                         {comp.email}
