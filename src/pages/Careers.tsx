@@ -504,7 +504,7 @@ export const Careers: FC = () => {
                 Don’t See a Specific Fit?
               </h3>
               <p className="font-body text-xs text-white/80 leading-relaxed mb-6">
-                We are always seeking exceptional engineers and instrumentation specialists. Submit your open resume to our talent pool.
+                We are always seeking exceptional engineers and instrumentation specialists. Submit your resume to our talent pool.
               </p>
             </div>
 
@@ -513,7 +513,7 @@ export const Careers: FC = () => {
               onClick={() => handleOpenApplyModal()}
               className="w-full py-2.5 bg-secondary hover:bg-white hover:text-primary text-white font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors text-center shadow-xs cursor-pointer"
             >
-              Submit Open Resume
+              Submit Resume
             </button>
           </div>
         </div>
@@ -632,7 +632,7 @@ export const Careers: FC = () => {
             <div className="p-5 bg-surface border-b border-outline-variant/15 flex items-start justify-between gap-4">
               <div>
                 <h3 className="font-display text-lg sm:text-xl font-bold text-primary">
-                  {selectedJob ? `Apply for ${selectedJob.title}` : 'Submit Open Resume'}
+                  {selectedJob ? `Apply for ${selectedJob.title}` : 'Submit Resume'}
                 </h3>
                 <p className="font-body text-xs text-on-surface-variant">
                   {selectedJob ? selectedJob.field : 'THETA Talent Community'}
