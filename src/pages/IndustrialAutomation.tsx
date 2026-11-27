@@ -132,9 +132,6 @@ export const IndustrialAutomation: FC = () => {
       {/* ========================================================================= */}
       <section id="products" className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin py-16 sm:py-20 border-b border-outline-variant/15">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-secondary block mb-1">
-            Section 2
-          </span>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary mb-2">
             Explore Our Product Categories
           </h2>
@@ -223,9 +220,6 @@ export const IndustrialAutomation: FC = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin">
           
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-secondary block mb-1">
-              Section 3
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary mb-2">
               Featured Products
             </h2>
