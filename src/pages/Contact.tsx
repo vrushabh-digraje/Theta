@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import plantPhoto from '../assets/images/hero_PAut1.jpg';
+import thetaLogo from '../assets/images/recorders/theta_logo_card.png';
 
 interface CompanyRouting {
   id: string;
@@ -404,11 +404,11 @@ export const Contact: FC = () => {
 
             {/* 2. Facility Card */}
             <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-4 sm:p-5 shadow-xs flex items-center gap-4">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xs overflow-hidden bg-surface-container shrink-0">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xs bg-white border border-outline-variant/20 p-2.5 flex items-center justify-center shrink-0 shadow-2xs">
                 <img
-                  src={plantPhoto}
-                  alt="THETA Manufacturing & R&D Plant"
-                  className="w-full h-full object-cover"
+                  src={thetaLogo}
+                  alt="THETA Controls Logo"
+                  className="w-full h-auto max-h-full object-contain"
                 />
               </div>
               <div>
