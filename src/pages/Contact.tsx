@@ -207,11 +207,14 @@ export const Contact: FC = () => {
 
         </div>
 
-        {/* 3. SPLIT TWO-COLUMN LAYOUT: FORM (LEFT) & FACILITY / GROUP COMPANIES (RIGHT) */}
+        {/* 3. SPLIT TWO-COLUMN LAYOUT: FORM & MAP (LEFT) & FACILITY / GROUP COMPANIES (RIGHT) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* LEFT COLUMN (Cols 1-7): STREAMLINED TECHNICAL INQUIRY / RFQ FORM */}
-          <div className="lg:col-span-7 bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-6 sm:p-8 shadow-xs">
+          {/* LEFT COLUMN (Cols 1-7): STREAMLINED TECHNICAL INQUIRY FORM & GOOGLE MAP */}
+          <div className="lg:col-span-7 space-y-6">
+            
+            {/* Form Container */}
+            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-6 sm:p-8 shadow-xs">
             <div className="mb-6 pb-4 border-b border-outline-variant/15 flex items-center justify-between">
               <div>
                 <h2 className="font-display text-xl sm:text-2xl font-bold text-primary">
@@ -358,36 +361,46 @@ export const Contact: FC = () => {
             )}
           </div>
 
-          {/* RIGHT COLUMN (Cols 8-12): MAP, FACILITY & GROUP COMPANIES PANEL */}
-          <div className="lg:col-span-5 space-y-6">
-            
-            {/* 1. Google Maps Card */}
-            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs overflow-hidden shadow-xs">
-              <div className="h-44 sm:h-52 w-full relative">
-                <iframe
-                  title="THETA Controls Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.565882672332!2d73.8567!3d18.4905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c00a651a5555%3A0x6b1c769ff00b1234!2sElectronic%20Estate%2C%20Pune-Satara%20Rd%2C%20Pune%2C%20Maharashtra%20411009!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+          {/* GOOGLE MAP CARD DIRECTLY AFTER FORM */}
+          <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs overflow-hidden shadow-xs">
+            <div className="p-4 bg-surface border-b border-outline-variant/15 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-secondary text-[20px]">location_on</span>
+                <div>
+                  <h4 className="font-display text-sm font-bold text-primary">
+                    Electronic Estate, Pune — Facility Location
+                  </h4>
+                  <p className="font-body text-[11px] text-on-surface-variant">
+                    Units 1, 4 & 44, Electronic Estate, Pune - Satara Road, Pune - 411009
+                  </p>
+                </div>
               </div>
-              <div className="p-3.5 bg-surface-container flex items-center justify-between text-xs font-body">
-                <span className="font-medium text-primary flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-secondary text-[16px]">location_on</span>
-                  <span>Electronic Estate, Pune - Satara Rd</span>
-                </span>
-                <a
-                  href="https://maps.google.com/?q=Electronic+Estate,+Pune-Satara+Rd,+Pune,+Maharashtra+411009"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-secondary hover:underline font-bold text-[11px] flex items-center gap-0.5"
-                >
-                  <span>Open Directions</span>
-                  <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-                </a>
-              </div>
+              <a
+                href="https://maps.google.com/?q=Electronic+Estate,+Pune-Satara+Rd,+Pune,+Maharashtra+411009"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:underline font-bold text-xs flex items-center gap-1 shrink-0 bg-secondary/10 px-3 py-1.5 rounded-xs"
+              >
+                <span>Open in Google Maps</span>
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
             </div>
+            
+            <div className="h-64 sm:h-72 w-full relative">
+              <iframe
+                title="THETA Controls Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.565882672332!2d73.8567!3d18.4905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c00a651a5555%3A0x6b1c769ff00b1234!2sElectronic%20Estate%2C%20Pune-Satara%20Rd%2C%20Pune%2C%20Maharashtra%20411009!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+
+        </div>
+
+        {/* RIGHT COLUMN (Cols 8-12): FACILITY & GROUP COMPANIES PANEL */}
+        <div className="lg:col-span-5 space-y-6">
 
             {/* 2. Facility Card */}
             <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-4 sm:p-5 shadow-xs flex items-center gap-4">
