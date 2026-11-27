@@ -605,9 +605,6 @@ export const Careers: FC = () => {
             {/* Modal Header */}
             <div className="p-5 bg-surface border-b border-outline-variant/15 flex items-start justify-between gap-4">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs bg-secondary/10 text-secondary border border-secondary/20 mb-1 inline-block">
-                  Centralized HR Application
-                </span>
                 <h3 className="font-display text-lg sm:text-xl font-bold text-primary">
                   {selectedJob ? `Apply for ${selectedJob.title}` : 'Submit Open Resume'}
                 </h3>
