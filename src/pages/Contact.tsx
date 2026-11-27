@@ -1,14 +1,84 @@
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
 import plantPhoto from '../assets/images/hero_PAut1.jpg';
 
+interface CompanyRouting {
+  id: string;
+  name: string;
+  email: string;
+  address: string;
+  badge: string;
+  icon: string;
+  link?: string;
+}
+
+const THETA_COMPANIES: CompanyRouting[] = [
+  {
+    id: 'theta-controls',
+    name: 'Theta Controls Private Limited',
+    email: 'webleads@thetacontrols.com',
+    address: 'Unit 1, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India.',
+    badge: 'Unit 1 / Satara Rd',
+    icon: 'settings_suggest',
+    link: '/industrial-automation',
+  },
+  {
+    id: 'theta-networking',
+    name: 'Theta Networking Solutions Private Limited',
+    email: 'webleads@thetanetworking.in',
+    address: 'Unit 4, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India.',
+    badge: 'Unit 4 / Networking',
+    icon: 'hub',
+    link: '/industrial-networking',
+  },
+  {
+    id: 'theta-controls-systems',
+    name: 'Theta Controls and Systems Private Limited',
+    email: 'webleads@thetacosys.com',
+    address: '4TH Floor, Plot no 37, Devi House, CTS NO 1576, Shivaji Nagar, Pune, Maharashtra, 411005.',
+    badge: 'Shivaji Nagar HQ',
+    icon: 'precision_manufacturing',
+    link: '/industrial-automation',
+  },
+  {
+    id: 'kontrelek-instruments',
+    name: 'Kontrelek Instruments',
+    email: 'webleads@kontrelek.com',
+    address: 'Unit 44, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India.',
+    badge: 'Unit 44 / Instruments',
+    icon: 'speed',
+    link: '/products',
+  },
+  {
+    id: 'theta-measurement-control',
+    name: 'Theta Measurement and Control Solutions Private Limited',
+    email: 'Sales@tmcs.in',
+    address: 'AR Bhat Bhavan, MCCIA Building, Tilak Road, Pune – 411002, Maharashtra, India.',
+    badge: 'MCCIA / Tilak Rd',
+    icon: 'analytics',
+    link: '/solutions',
+  },
+  {
+    id: 'i-dont-know',
+    name: 'I Don’t Know',
+    email: 'info@thetacontrols.com',
+    address: 'Theta Group Central Desk, Pune, Maharashtra, India.',
+    badge: 'Common Desk',
+    icon: 'help_outline',
+  },
+];
+
 /**
- * Enterprise Contact Us & Engineering Support page for THETA Controls & Systems.
- * Implements the approved desktop layout with:
- * - 3 Priority Channel Cards on top (Direct Phone, Direct Email, Pune Plant)
- * - 2-Column Split:
- *    - Left: Technical Inquiry / RFQ Form (No file upload, clean direct submission)
- *    - Right: Interactive Pune Map, Facility Hours Card, and Group Companies Details Panel.
+ * Enterprise Contact Us & Engineering Support page for THETA Group.
+ * Implements strict client requirements:
+ * - Group wise company name dropdown in contact form with exact required sequence:
+ *    1. Theta Controls Private Limited
+ *    2. Theta Networking Solutions Private Limited
+ *    3. Theta Controls and Systems Private Limited
+ *    4. Kontrelek Instruments
+ *    5. Theta Measurement and Control Solutions Private Limited
+ *    6. I Don’t Know
+ * - Dynamic routing display to respective webleads emails and physical Pune addresses.
+ * - Group Companies Details panel with 5 group companies + common desk.
  */
 export const Contact: FC = () => {
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
@@ -17,49 +87,16 @@ export const Contact: FC = () => {
     email: '',
     phone: '',
     company: '',
-    division: 'Theta Controls & Systems (Process Automation & Panels)',
+    selectedCompany: THETA_COMPANIES[0].name,
     message: '',
   });
+
+  const selectedEntity = THETA_COMPANIES.find((c) => c.name === formData.selectedCompany) || THETA_COMPANIES[0];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
   };
-
-  const groupCompanies = [
-    {
-      id: 'theta-controls',
-      name: 'Theta Controls & Systems',
-      tagline: 'Industrial Automation & Process Controls',
-      badge: 'Est. 1981',
-      icon: 'settings_suggest',
-      link: '/industrial-automation',
-    },
-    {
-      id: 'theta-defence',
-      name: 'Theta Defence & Aerospace',
-      tagline: 'Tactical Electronics & DRDO Partner',
-      badge: 'Defence',
-      icon: 'shield',
-      link: '/defence-systems',
-    },
-    {
-      id: 'theta-iot',
-      name: 'Theta IoT Technologies',
-      tagline: 'Smart Edge Gateways & Wireless Telemetry',
-      badge: 'IoT',
-      icon: 'sensors',
-      link: '/iot-components',
-    },
-    {
-      id: 'theta-test',
-      name: 'Theta Test & Automation',
-      tagline: 'NI Silver Alliance Partner & Automated DAQ Testers',
-      badge: 'Test & DAQ',
-      icon: 'precision_manufacturing',
-      link: '/system-integration',
-    },
-  ];
 
   return (
     <div className="w-full pb-20">
@@ -76,8 +113,8 @@ export const Contact: FC = () => {
             Contact Us & Engineering Support
           </h1>
           <p className="font-body text-xs sm:text-sm text-white/80 leading-relaxed">
-            Connect directly with THETA Controls’ application engineers and sales desk in Pune. 
-            For immediate technical support, product quotes, or tenders, reach us via our direct channels below.
+            Connect directly with THETA Group application engineers and sales desks across Pune. 
+            For technical support, custom instrumentation, tenders, or quotations, reach us through the channels below.
           </p>
         </div>
       </section>
@@ -108,7 +145,7 @@ export const Contact: FC = () => {
                 +91-20 66 268 600
               </h3>
               <p className="font-body text-xs text-on-surface-variant leading-relaxed">
-                Direct connection to technical sales engineers, quotation desk, and project support.
+                Direct connection to technical sales engineers, quotation desk, and project support across all group entities.
               </p>
             </div>
 
@@ -120,13 +157,13 @@ export const Contact: FC = () => {
             </div>
           </a>
 
-          {/* Card 2: Direct Email */}
+          {/* Card 2: Central Group Email */}
           <a
             href="mailto:info@thetacontrols.com"
             className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xs shadow-2xs">
-              Fast Response
+              Central Desk
             </div>
 
             <div>
@@ -134,13 +171,13 @@ export const Contact: FC = () => {
                 <span className="material-symbols-outlined text-[26px]">mail</span>
               </div>
               <span className="font-body text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">
-                Direct Email Address
+                Common Group Email
               </span>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-2 truncate">
                 info@thetacontrols.com
               </h3>
               <p className="font-body text-xs text-on-surface-variant leading-relaxed">
-                Submit project tenders, instrumentation datasheets, RFQs, or alliance proposals.
+                General inquiries, tenders, and multi-division proposals are routed automatically to designated desks.
               </p>
             </div>
 
@@ -159,13 +196,13 @@ export const Contact: FC = () => {
                 <span className="material-symbols-outlined text-[26px]">location_on</span>
               </div>
               <span className="font-body text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">
-                Pune HQ & Manufacturing Plant
+                Pune HQ & Manufacturing Plants
               </span>
               <h3 className="font-display text-lg sm:text-xl font-bold text-primary mb-2">
-                Pune Electronic Estate
+                Electronic Estate, Pune
               </h3>
               <p className="font-body text-xs text-on-surface-variant leading-relaxed">
-                1, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India.
+                Units 1, 4 & 44, Electronic Estate, Pune - Satara Road, Pune - 411009, Maharashtra, India.
               </p>
             </div>
 
@@ -188,7 +225,7 @@ export const Contact: FC = () => {
                   Technical Inquiry / RFQ Form
                 </h2>
                 <p className="font-body text-xs text-on-surface-variant mt-0.5">
-                  Our application engineers will respond within 24 business hours.
+                  Select your desired company division. Our engineers will respond within 24 business hours.
                 </p>
               </div>
               <div className="flex items-center gap-2 text-xs font-bold text-secondary uppercase tracking-wider shrink-0">
@@ -198,15 +235,29 @@ export const Contact: FC = () => {
             </div>
 
             {formSubmitted ? (
-              <div className="text-center py-12">
+              <div className="text-center py-10">
                 <div className="w-16 h-16 rounded-full bg-secondary/15 text-secondary flex items-center justify-center mx-auto mb-4">
                   <span className="material-symbols-outlined text-[36px]">check_circle</span>
                 </div>
                 <h3 className="font-display text-xl font-bold text-primary mb-2">
                   Inquiry Successfully Received!
                 </h3>
+                <div className="bg-surface-container-low p-4 rounded-xs border border-outline-variant/20 max-w-md mx-auto mb-6 text-left space-y-1.5">
+                  <div className="text-[11px] text-outline font-bold uppercase tracking-wider">
+                    Routing Details:
+                  </div>
+                  <div className="text-xs text-primary font-bold">
+                    Recipient Company: <span className="text-secondary">{selectedEntity.name}</span>
+                  </div>
+                  <div className="text-xs text-primary">
+                    Destination Mailbox: <span className="font-mono font-semibold text-secondary">{selectedEntity.email}</span>
+                  </div>
+                  <div className="text-[11px] text-on-surface-variant">
+                    Facility: {selectedEntity.address}
+                  </div>
+                </div>
                 <p className="font-body text-xs text-on-surface-variant max-w-md mx-auto leading-relaxed mb-6">
-                  Thank you for contacting THETA Controls. An application engineer has been assigned to your message and will contact you via email or phone.
+                  Thank you for contacting THETA Group. An application engineer has been notified and will contact you shortly via email or phone.
                 </p>
                 <button
                   type="button"
@@ -218,6 +269,8 @@ export const Contact: FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                
+                {/* 1. Full Name */}
                 <div>
                   <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
                     Your Name *
@@ -232,10 +285,11 @@ export const Contact: FC = () => {
                   />
                 </div>
 
+                {/* 2. Email & Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
-                      Work Email *
+                      Email *
                     </label>
                     <input
                       type="email"
@@ -261,6 +315,7 @@ export const Contact: FC = () => {
                   </div>
                 </div>
 
+                {/* 3. Company Name */}
                 <div>
                   <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
                     Company Name
@@ -269,52 +324,59 @@ export const Contact: FC = () => {
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="e.g. Bharat Forge / DRDO / Tata Motors"
+                    placeholder="e.g. Bharat Forge / Tata Motors / DRDO"
                     className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
                   />
                 </div>
 
+                {/* 4. Group-Wise Company Name Dropdown (STRICT SEQUENCE ALL OVER THE SITE) */}
                 <div>
                   <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
-                    Engineering Division of Interest
+                    Group-Wise Company Name *
                   </label>
                   <select
-                    value={formData.division}
-                    onChange={(e) => setFormData({ ...formData, division: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors"
+                    value={formData.selectedCompany}
+                    onChange={(e) => setFormData({ ...formData, selectedCompany: e.target.value })}
+                    className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs font-medium text-primary focus:outline-none focus:border-secondary transition-colors"
                   >
-                    <option>Theta Controls & Systems (Process Automation & Panels)</option>
-                    <option>Theta Defence & Aerospace (Tactical Controllers & ROV)</option>
-                    <option>Theta IoT Technologies (Edge Gateways & Gas Detection)</option>
-                    <option>Theta Test & Automation (NI Alliance & Automated DAQ)</option>
-                    <option>Hardware Distribution (Hirschmann / Belden / Dino-Lite)</option>
-                    <option>Other / General Inquiry</option>
+                    {THETA_COMPANIES.map((company, idx) => (
+                      <option key={company.id} value={company.name}>
+                        {idx + 1}. {company.name}
+                      </option>
+                    ))}
                   </select>
-                  {formData.division === 'Other / General Inquiry' && (
-                    <p className="mt-1.5 text-[11px] text-secondary font-medium flex items-center gap-1">
-                      <span className="material-symbols-outlined text-[14px]">info</span>
-                      <span>General inquiries will be routed directly to the designated company management desk.</span>
-                    </p>
-                  )}
+
+                  {/* Dynamic Company Routing Information Pill */}
+                  <div className="mt-2 p-3 bg-secondary/5 border border-secondary/20 rounded-xs flex flex-col gap-1 text-[11px]">
+                    <div className="flex items-center gap-1.5 text-secondary font-bold">
+                      <span className="material-symbols-outlined text-[16px]">forward_to_inbox</span>
+                      <span>Target Webleads Routing: <strong className="font-mono">{selectedEntity.email}</strong></span>
+                    </div>
+                    <div className="flex items-start gap-1.5 text-on-surface-variant">
+                      <span className="material-symbols-outlined text-[16px] text-outline shrink-0 mt-0.5">location_on</span>
+                      <span>{selectedEntity.address}</span>
+                    </div>
+                  </div>
                 </div>
 
+                {/* 5. Message */}
                 <div>
                   <label className="block font-body text-[11px] font-bold text-outline uppercase tracking-wider mb-1">
                     Technical Specifications / Message *
                   </label>
                   <textarea
-                    rows={5}
+                    rows={4}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Describe your instrumentation specifications, quantities, target project timeframe, or testing parameters..."
+                    placeholder="Describe your instrumentation requirements, process parameters, quantities, or technical queries..."
                     className="w-full px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/30 rounded-xs font-body text-xs text-primary focus:outline-none focus:border-secondary transition-colors resize-none"
                   />
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                   <span className="text-[11px] text-outline font-body">
-                    * All submitted project specifications are kept strictly confidential.
+                    * All technical specifications are kept strictly confidential.
                   </span>
 
                   <button
@@ -334,7 +396,7 @@ export const Contact: FC = () => {
             
             {/* 1. Google Maps Card */}
             <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs overflow-hidden shadow-xs">
-              <div className="h-48 sm:h-56 w-full relative">
+              <div className="h-44 sm:h-52 w-full relative">
                 <iframe
                   title="THETA Controls Location Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.565882672332!2d73.8567!3d18.4905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c00a651a5555%3A0x6b1c769ff00b1234!2sElectronic%20Estate%2C%20Pune-Satara%20Rd%2C%20Pune%2C%20Maharashtra%20411009!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
@@ -346,7 +408,7 @@ export const Contact: FC = () => {
               <div className="p-3.5 bg-surface-container flex items-center justify-between text-xs font-body">
                 <span className="font-medium text-primary flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-secondary text-[16px]">location_on</span>
-                  <span>Pune Electronic Estate, Pune</span>
+                  <span>Electronic Estate, Pune - Satara Rd</span>
                 </span>
                 <a
                   href="https://maps.google.com/?q=Electronic+Estate,+Pune-Satara+Rd,+Pune,+Maharashtra+411009"
@@ -371,10 +433,10 @@ export const Contact: FC = () => {
               </div>
               <div>
                 <h4 className="font-display text-sm sm:text-base font-bold text-primary mb-1">
-                  THETA Manufacturing & R&D Facility
+                  THETA Manufacturing & Integration Plant
                 </h4>
                 <p className="font-body text-xs text-on-surface-variant mb-2">
-                  Electronic Estate, Satara Road, Pune
+                  7,600 sq.ft precision manufacturing and testing facility at Electronic Estate, Pune.
                 </p>
                 <div className="inline-flex items-center gap-1.5 text-[11px] text-secondary font-medium bg-secondary/10 px-2 py-0.5 rounded-2xs">
                   <span className="material-symbols-outlined text-[14px]">schedule</span>
@@ -383,46 +445,68 @@ export const Contact: FC = () => {
               </div>
             </div>
 
-            {/* 3. Group Companies Details Panel */}
+            {/* 3. Group Companies Details Panel (ALL 5 SUB-COMPANIES + COMMON DESK) */}
             <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs p-5 sm:p-6 shadow-xs">
               <div className="flex items-center justify-between mb-4 pb-2 border-b border-outline-variant/15">
                 <h3 className="font-display text-base font-bold text-primary flex items-center gap-2">
                   <span className="material-symbols-outlined text-secondary text-[20px]">corporate_fare</span>
-                  <span>Group Companies Details</span>
+                  <span>Theta Group Sub-Companies</span>
                 </h3>
                 <span className="text-[10px] font-bold text-outline uppercase tracking-wider">
-                  4 Divisions
+                  5 Companies
                 </span>
               </div>
 
               <div className="space-y-3">
-                {groupCompanies.map((comp) => (
-                  <Link
+                {THETA_COMPANIES.slice(0, 5).map((comp, idx) => (
+                  <div
                     key={comp.id}
-                    to={comp.link}
-                    className="p-3 bg-surface-container-low hover:bg-surface-container border border-outline-variant/20 hover:border-secondary rounded-xs flex items-start justify-between gap-3 transition-all duration-200 group"
+                    className="p-3 bg-surface-container-low border border-outline-variant/20 hover:border-secondary rounded-xs flex flex-col gap-1.5 transition-all duration-200"
                   >
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-8 h-8 rounded-xs bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
-                        <span className="material-symbols-outlined text-[18px]">{comp.icon}</span>
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary font-mono text-[10px] font-bold flex items-center justify-center shrink-0">
+                          {idx + 1}
+                        </span>
+                        <h4 className="font-display text-xs sm:text-sm font-bold text-primary">
+                          {comp.name}
+                        </h4>
                       </div>
-                      <div>
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <h4 className="font-display text-xs sm:text-sm font-bold text-primary group-hover:text-secondary transition-colors">
-                            {comp.name}
-                          </h4>
-                        </div>
-                        <p className="font-body text-[11px] text-on-surface-variant line-clamp-1">
-                          {comp.tagline}
-                        </p>
-                      </div>
+                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-2xs bg-surface-container border border-outline-variant/20 text-outline shrink-0">
+                        {comp.badge}
+                      </span>
                     </div>
 
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-2xs bg-surface-container border border-outline-variant/20 text-outline shrink-0">
-                      {comp.badge}
-                    </span>
-                  </Link>
+                    <div className="text-[11px] text-on-surface-variant flex items-start gap-1 pl-7">
+                      <span className="material-symbols-outlined text-[14px] text-outline shrink-0 mt-0.5">location_on</span>
+                      <span className="line-clamp-2 leading-relaxed">{comp.address}</span>
+                    </div>
+
+                    <div className="text-[11px] font-mono text-secondary font-semibold pl-7 flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[14px]">mail</span>
+                      <a href={`mailto:${comp.email}`} className="hover:underline">
+                        {comp.email}
+                      </a>
+                    </div>
+                  </div>
                 ))}
+
+                {/* Common Group Email Card */}
+                <div className="p-3 bg-primary/5 border border-primary/20 rounded-xs flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary text-[18px]">domain</span>
+                    <div>
+                      <div className="font-bold text-primary text-[11px]">Theta Group Common Desk</div>
+                      <div className="text-[11px] text-outline">For general inquiries and partnerships</div>
+                    </div>
+                  </div>
+                  <a
+                    href="mailto:info@thetacontrols.com"
+                    className="font-mono font-bold text-secondary text-xs hover:underline"
+                  >
+                    info@thetacontrols.com
+                  </a>
+                </div>
               </div>
             </div>
 
