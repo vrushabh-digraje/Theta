@@ -580,11 +580,7 @@ export const Careers: FC = () => {
             </div>
 
             {/* Modal Footer CTA */}
-            <div className="p-4 bg-surface-container-low border-t border-outline-variant/15 flex items-center justify-between">
-              <span className="text-[11px] text-outline">
-                Centralized HR Routing: <strong className="text-secondary font-mono">careers@thetacontrols.com</strong>
-              </span>
-
+            <div className="p-4 bg-surface-container-low border-t border-outline-variant/15 flex items-center justify-end">
               <button
                 type="button"
                 onClick={() => handleOpenApplyModal(selectedJob)}
