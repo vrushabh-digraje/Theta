@@ -355,12 +355,6 @@ export const Careers: FC = () => {
             <p className="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">
               Explore open engineering roles at our Pune facilities. Click on any job card for complete role specifications or to apply directly.
             </p>
-
-            {/* Centralized HR Notice Badge */}
-            <div className="mt-4 inline-flex items-center gap-2 bg-surface-container border border-outline-variant/30 px-3.5 py-1.5 rounded-full text-[11px] text-primary">
-              <span className="material-symbols-outlined text-secondary text-[16px]">mail</span>
-              <span>All applications are routed directly to: <strong className="font-mono text-secondary">careers@thetacontrols.com</strong></span>
-            </div>
           </div>
 
           {/* Job Listing Cards (Format: field, title, experience, location, short description, skills) */}
