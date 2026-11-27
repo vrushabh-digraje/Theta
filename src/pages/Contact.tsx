@@ -395,30 +395,7 @@ export const Contact: FC = () => {
 
           {/* GOOGLE MAP CARD DIRECTLY AFTER FORM */}
           <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xs overflow-hidden shadow-xs">
-            <div className="p-4 bg-surface border-b border-outline-variant/15 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-secondary text-[20px]">location_on</span>
-                <div>
-                  <h4 className="font-display text-sm font-bold text-primary">
-                    Electronic Estate, Pune — Facility Location
-                  </h4>
-                  <p className="font-body text-[11px] text-on-surface-variant">
-                    Units 1, 4 & 44, Electronic Estate, Pune - Satara Road, Pune - 411009
-                  </p>
-                </div>
-              </div>
-              <a
-                href="https://maps.google.com/?q=Electronic+Estate,+Pune-Satara+Rd,+Pune,+Maharashtra+411009"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-secondary hover:underline font-bold text-xs flex items-center gap-1 shrink-0 bg-secondary/10 px-3 py-1.5 rounded-xs"
-              >
-                <span>Open in Google Maps</span>
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
-              </a>
-            </div>
-            
-            <div className="h-64 sm:h-72 w-full relative">
+            <div className="h-72 sm:h-80 w-full relative">
               <iframe
                 title="THETA Controls Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.565882672332!2d73.8567!3d18.4905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c00a651a5555%3A0x6b1c769ff00b1234!2sElectronic%20Estate%2C%20Pune-Satara%20Rd%2C%20Pune%2C%20Maharashtra%20411009!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
