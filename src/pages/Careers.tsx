@@ -3,6 +3,7 @@ import labHeroImg from '../assets/images/hero_split_electronics.jpg';
 import plantImg1 from '../assets/images/hero_PAut1.jpg';
 import plantImg2 from '../assets/images/hero_DS1.jpg';
 import teamImg from '../assets/images/WHO_WE_ARE.jpg';
+import { handleSmartEmailClick } from '../utils/email';
 
 interface JobOpening {
   id: string;
@@ -428,6 +429,31 @@ export const Careers: FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Direct HR & Recruitment Desk (Single dedicated email position on Careers page) */}
+          <div className="mt-12 p-5 sm:p-6 bg-surface-container-lowest border border-outline-variant/20 rounded-xs shadow-xs max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div className="flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-xs bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-[24px]">mail</span>
+              </div>
+              <div>
+                <h4 className="font-display text-sm sm:text-base font-bold text-primary">
+                  Direct HR & Careers Desk
+                </h4>
+                <p className="font-body text-xs text-on-surface-variant">
+                  For direct applications or recruitment inquiries, email our team:
+                </p>
+              </div>
+            </div>
+            <a
+              href="mailto:careers@thetacontrols.com"
+              onClick={(e) => handleSmartEmailClick('careers@thetacontrols.com', e)}
+              className="font-mono text-xs sm:text-sm font-bold text-secondary hover:underline px-4 py-2.5 bg-surface-container-low hover:bg-secondary/10 border border-outline-variant/30 rounded-xs shrink-0 transition-colors cursor-pointer flex items-center gap-2"
+            >
+              <span>careers@thetacontrols.com</span>
+              <span className="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
           </div>
 
         </div>
