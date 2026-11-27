@@ -412,10 +412,9 @@ export const Careers: FC = () => {
                   <button
                     type="button"
                     onClick={() => handleOpenDetailModal(job)}
-                    className="py-2.5 px-3 bg-surface-container hover:bg-surface-container-high text-primary font-body text-xs font-bold rounded-xs transition-colors flex items-center justify-center gap-1 cursor-pointer border border-outline-variant/30"
+                    className="py-2.5 px-3 bg-surface-container hover:bg-surface-container-high text-primary font-body text-xs font-bold rounded-xs transition-colors flex items-center justify-center cursor-pointer border border-outline-variant/30"
                   >
                     <span>View Details</span>
-                    <span className="material-symbols-outlined text-[14px]">visibility</span>
                   </button>
 
                   <button
