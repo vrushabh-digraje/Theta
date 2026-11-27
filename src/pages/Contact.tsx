@@ -91,6 +91,56 @@ export const Contact: FC = () => {
     setFormSubmitted(true);
   };
 
+  const handlePhoneClick = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    const phone = '+912066268600';
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = `tel:${phone}`;
+      return;
+    }
+
+    // On Laptop / Desktop: attempt calling app, fallback to WhatsApp Web if window doesn't blur
+    let appOpened = false;
+    const onBlur = () => {
+      appOpened = true;
+    };
+    window.addEventListener('blur', onBlur, { once: true });
+    window.location.href = `tel:${phone}`;
+
+    setTimeout(() => {
+      window.removeEventListener('blur', onBlur);
+      if (!appOpened && document.hasFocus()) {
+        window.open('https://wa.me/912066268600', '_blank', 'noopener,noreferrer');
+      }
+    }, 800);
+  };
+
+  const handleEmailClick = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    const email = 'info@thetacontrols.com';
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = `mailto:${email}`;
+      return;
+    }
+
+    // On Laptop / Desktop: attempt mailto app, fallback to Webmail if window doesn't blur
+    let appOpened = false;
+    const onBlur = () => {
+      appOpened = true;
+    };
+    window.addEventListener('blur', onBlur, { once: true });
+    window.location.href = `mailto:${email}`;
+
+    setTimeout(() => {
+      window.removeEventListener('blur', onBlur);
+      if (!appOpened && document.hasFocus()) {
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank', 'noopener,noreferrer');
+      }
+    }, 800);
+  };
+
   return (
     <div className="w-full pb-20">
       {/* 1. TOP HERO BANNER */}
@@ -119,7 +169,11 @@ export const Contact: FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           
           {/* Card 1: Direct Phone Hotline */}
-          <div className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden">
+          <div
+            onClick={handlePhoneClick}
+            className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden cursor-pointer"
+            title="Click to call +91-20 66 268 600"
+          >
             <div className="absolute top-0 right-0 bg-secondary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xs shadow-2xs">
               Fast Sales Desk
             </div>
@@ -131,31 +185,18 @@ export const Contact: FC = () => {
               <span className="font-body text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">
                 Direct Phone Hotline
               </span>
-              <a
-                href="tel:+912066268600"
-                className="font-display text-xl sm:text-2xl font-bold text-primary hover:text-secondary transition-colors block mb-1"
-                title="Click to call +91-20 66 268 600"
-              >
+              <div className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors block">
                 +91-20 66 268 600
-              </a>
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-xs font-bold text-secondary uppercase tracking-wider">
-              <a
-                href="tel:+912066268600"
-                className="hover:underline flex items-center gap-1.5 text-secondary"
-              >
-                <span>Call Sales Desk</span>
-                <span className="material-symbols-outlined text-[16px]">call</span>
-              </a>
-              <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
-                arrow_forward
-              </span>
+              </div>
             </div>
           </div>
 
           {/* Card 2: Central Group Email */}
-          <div className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden">
+          <div
+            onClick={handleEmailClick}
+            className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden cursor-pointer"
+            title="Click to send email to info@thetacontrols.com"
+          >
             <div className="absolute top-0 right-0 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xs shadow-2xs">
               Central Desk
             </div>
@@ -167,35 +208,9 @@ export const Contact: FC = () => {
               <span className="font-body text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">
                 Common Group Email
               </span>
-              <a
-                href="mailto:info@thetacontrols.com"
-                className="font-display text-xl sm:text-2xl font-bold text-primary hover:text-secondary transition-colors block mb-1 truncate"
-                title="Click to email info@thetacontrols.com"
-              >
+              <div className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors block truncate">
                 info@thetacontrols.com
-              </a>
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-xs font-bold uppercase tracking-wider gap-2">
-              <a
-                href="mailto:info@thetacontrols.com"
-                className="text-secondary hover:underline flex items-center gap-1"
-                title="Open in Mail App (Mobile & Laptop)"
-              >
-                <span>Mail App</span>
-                <span className="material-symbols-outlined text-[14px]">mail</span>
-              </a>
-              <span className="text-outline/40">•</span>
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@thetacontrols.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-secondary hover:underline flex items-center gap-1 font-semibold"
-                title="Open in Gmail Web (Browser)"
-              >
-                <span>Webmail</span>
-                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
-              </a>
+              </div>
             </div>
           </div>
 
