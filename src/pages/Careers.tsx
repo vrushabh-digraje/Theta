@@ -815,25 +815,11 @@ export const Careers: FC = () => {
                     )}
                   </div>
 
-                  {/* Standardized Subject Preview */}
-                  <div className="pt-2 p-3 bg-surface-container rounded-xs border border-outline-variant/20 text-[11px]">
-                    <div className="text-outline font-bold uppercase tracking-wider mb-0.5">
-                      Standardized Email Subject Format:
-                    </div>
-                    <div className="font-mono text-secondary font-bold truncate">
-                      {standardizedSubject}
-                    </div>
-                  </div>
-
                   {/* Submit Button */}
-                  <div className="pt-2 flex items-center justify-between">
-                    <span className="text-[10px] text-outline">
-                      To: <strong className="text-primary">careers@thetacontrols.com</strong>
-                    </span>
-
+                  <div className="pt-2 flex justify-end">
                     <button
                       type="submit"
-                      className="px-6 py-2.5 bg-secondary hover:bg-primary text-white font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors shadow-xs cursor-pointer"
+                      className="w-full sm:w-auto px-8 py-3 bg-secondary hover:bg-primary text-white font-body text-xs font-bold uppercase tracking-wider rounded-xs transition-colors shadow-xs cursor-pointer"
                     >
                       Submit Application
                     </button>
