@@ -10,11 +10,12 @@ import aerospaceImg from '../assets/images/recorders/aerospace_pr_banner.jpg';
 /**
  * Dedicated Landing Page for Theta Controls & Systems.
  * Implements approved layout from Landing_Page_Content.pdf:
- * - Hero / Main banner with direct CTAs
- * - Featured Products (PR Series & Power Regulators)
- * - Explore Our Products & Solutions (The 5 core solutions)
+ * - Section 1: Hero / Main banner with direct CTAs
+ * - Section 2: Explore Our Product Categories (Paperless Recorders & Power Regulators)
+ * - Section 3: Featured Products (PR Series & Power Regulators)
+ * - Section 4: Explore Our Products & Solutions (The 5 core solutions)
  * - Hidden SEO Keywords: Applications & Industries (per client note: keywords only, do not include in UI)
- * - Find the Right Product or Solution CTA
+ * - Section 5: Find the Right Product or Solution CTA
  * - Sub-group Specific Identity / Footer card for Theta Controls and Systems Pvt Ltd.
  */
 export const IndustrialAutomation: FC = () => {
@@ -127,12 +128,104 @@ export const IndustrialAutomation: FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* FEATURED PRODUCTS */}
+      {/* SECTION 2: EXPLORE OUR PRODUCT CATEGORIES */}
       {/* ========================================================================= */}
-      <section id="products" className="bg-surface-container-lowest/70 py-16 sm:py-20 border-b border-outline-variant/15">
+      <section id="products" className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin py-16 sm:py-20 border-b border-outline-variant/15">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-secondary block mb-1">
+            Section 2
+          </span>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary mb-2">
+            Explore Our Product Categories
+          </h2>
+          <p className="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+            High-reliability instrumentation designed and tested for continuous heavy-duty industrial plant operations.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          
+          {/* Category 1: Paperless Recorders */}
+          <div className="bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+            <div className="h-56 sm:h-64 overflow-hidden bg-surface-container relative">
+              <img
+                src={prSeriesImg}
+                alt="Paperless Recorders"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-3 left-3 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-2xs backdrop-blur-xs">
+                Process Monitoring
+              </div>
+            </div>
+
+            <div className="p-6">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-1">
+                Paperless Recorders
+              </h3>
+              <p className="font-body text-xs font-semibold text-secondary mb-3">
+                PR Series • TH-PLR Series
+              </p>
+              <p className="font-body text-xs text-on-surface-variant leading-relaxed mb-6">
+                Full-touch graphical recorders with up to 48 universal analog channels, mathematical functions, Ethernet Modbus, and secure flash memory storage.
+              </p>
+
+              <Link
+                to="/products/paperless-recorders/pr-series"
+                className="inline-flex items-center gap-1.5 font-body text-xs font-bold text-secondary uppercase tracking-wider group-hover:translate-x-1 transition-transform"
+              >
+                <span>View Products</span>
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Category 2: Power Regulators */}
+          <div className="bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+            <div className="h-56 sm:h-64 overflow-hidden bg-surface-container relative">
+              <img
+                src={bannerHeroImg}
+                alt="Power Regulators & Thyristors"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-3 left-3 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-2xs shadow-xs">
+                Power Control
+              </div>
+            </div>
+
+            <div className="p-6">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-1">
+                Power Regulators
+              </h3>
+              <p className="font-body text-xs font-semibold text-secondary mb-3">
+                Phase Angle • ZCO • Digital
+              </p>
+              <p className="font-body text-xs text-on-surface-variant leading-relaxed mb-6">
+                Single and three-phase thyristor power controllers with auto-sync, current limiting, soft start, and fault diagnostics for electric heating elements.
+              </p>
+
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-1.5 font-body text-xs font-bold text-secondary uppercase tracking-wider group-hover:translate-x-1 transition-transform"
+              >
+                <span>View Products</span>
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION 3: FEATURED PRODUCTS */}
+      {/* ========================================================================= */}
+      <section className="bg-surface-container-lowest/70 py-16 sm:py-20 border-b border-outline-variant/15">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-frame-margin">
           
           <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-secondary block mb-1">
+              Section 3
+            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary mb-2">
               Featured Products
             </h2>
