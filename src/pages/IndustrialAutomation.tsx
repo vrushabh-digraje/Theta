@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { handleSmartEmailClick } from '../utils/email';
 
 // Asset Images
 import bannerHeroImg from '../assets/images/hero_PAut1.jpg';
@@ -396,7 +397,8 @@ export const IndustrialAutomation: FC = () => {
           <div className="flex items-center gap-4 shrink-0">
             <a
               href="mailto:webleads@thetacosys.com"
-              className="font-mono text-secondary font-bold hover:underline"
+              onClick={(e) => handleSmartEmailClick('webleads@thetacosys.com', e)}
+              className="font-mono text-secondary font-bold hover:underline cursor-pointer"
             >
               webleads@thetacosys.com
             </a>

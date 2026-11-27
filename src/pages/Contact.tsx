@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import thetaLogo from '../assets/images/recorders/theta_logo_card.png';
+import { handleSmartEmailClick } from '../utils/email';
 
 interface CompanyRouting {
   id: string;
@@ -153,7 +154,8 @@ export const Contact: FC = () => {
           {/* Card 2: Central Group Email */}
           <a
             href="mailto:info@thetacontrols.com"
-            className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden"
+            onClick={(e) => handleSmartEmailClick('info@thetacontrols.com', e)}
+            className="p-6 sm:p-7 bg-surface-container-lowest border border-outline-variant/20 hover:border-secondary rounded-xs shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between relative overflow-hidden cursor-pointer"
           >
             <div className="absolute top-0 right-0 bg-primary text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xs shadow-2xs">
               Central Desk
@@ -433,7 +435,11 @@ export const Contact: FC = () => {
 
                     <div className="text-[11px] font-mono text-secondary font-semibold flex items-center gap-1">
                       <span className="material-symbols-outlined text-[14px]">mail</span>
-                      <a href={`mailto:${comp.email}`} className="hover:underline">
+                      <a
+                        href={`mailto:${comp.email}`}
+                        onClick={(e) => handleSmartEmailClick(comp.email, e)}
+                        className="hover:underline cursor-pointer"
+                      >
                         {comp.email}
                       </a>
                     </div>
@@ -451,7 +457,8 @@ export const Contact: FC = () => {
                   </div>
                   <a
                     href="mailto:info@thetacontrols.com"
-                    className="font-mono font-bold text-secondary text-xs hover:underline"
+                    onClick={(e) => handleSmartEmailClick('info@thetacontrols.com', e)}
+                    className="font-mono font-bold text-secondary text-xs hover:underline cursor-pointer"
                   >
                     info@thetacontrols.com
                   </a>

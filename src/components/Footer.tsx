@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '../assets/images/theta_logo.png';
 import { Reveal } from './Reveal';
+import { handleSmartEmailClick } from '../utils/email';
 
 /**
  * Enterprise B2B Footer component matching THETA Controls' technical branding.
@@ -52,7 +53,8 @@ export const Footer: FC = () => {
                 <span className="material-symbols-outlined text-[20px] text-secondary shrink-0">mail</span>
                 <a 
                   href="mailto:info@thetacontrols.com" 
-                  className="font-semibold text-sm text-primary hover:text-secondary transition-colors"
+                  onClick={(e) => handleSmartEmailClick('info@thetacontrols.com', e)}
+                  className="font-semibold text-sm text-primary hover:text-secondary transition-colors cursor-pointer"
                   title="Email Theta Controls"
                 >
                   info@thetacontrols.com
